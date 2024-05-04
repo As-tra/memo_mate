@@ -8,5 +8,6 @@ ThemeData darkMode = ThemeData(
   colorScheme: const ColorScheme.dark(
     background: Color(0xFF1E1E1E),
     primary: Color(0xFFDEDEDE),
+    onPrimary: Color(0xFF7C7C7C),
   ),
 );
