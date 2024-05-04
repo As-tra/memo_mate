@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memo_mate/theme/theme.dart';
+import 'package:memo_mate/views/home_view.dart';
 
 void main() {
   runApp(const MemoMate());
@@ -13,7 +14,7 @@ class MemoMate extends StatelessWidget {
     return MaterialApp(
       theme: darkMode,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      home: HomeView(),
     );
   }
 }

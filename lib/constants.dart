@@ -1,0 +1,1 @@
+String ktitle = 'Memo Mate';
