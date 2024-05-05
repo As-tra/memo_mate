@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:memo_mate/widgets/custom_text.dart';
 
@@ -11,10 +10,10 @@ class DateShowCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.only(right: 7),
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.white,
-          
         ),
         borderRadius: BorderRadius.circular(11),
       ),

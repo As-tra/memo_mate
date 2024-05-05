@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 17),
             CustomSearchBar(),
             SizedBox(height: 17),
-            DateShowCard()
+            DateBar(),
           ],
         ),
       ),
@@ -28,5 +28,19 @@ class HomeView extends StatelessWidget {
   }
 }
 
+class DateBar extends StatelessWidget {
+  const DateBar({super.key});
 
-
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return const DateShowCard();
+        },
+      ),
+    );
+  }
+}
