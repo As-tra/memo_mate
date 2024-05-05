@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
@@ -11,6 +10,10 @@ class CustomSearchBar extends StatelessWidget {
     return SizedBox(
       height: 32,
       child: TextField(
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.onPrimary,
+          fontFamily: 'Comfortaa',
+        ),
         decoration: InputDecoration(
           prefixIcon: Image.asset('assets/icons/searchnormal1.png'),
           fillColor: Colors.white,

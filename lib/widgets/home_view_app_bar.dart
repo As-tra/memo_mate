@@ -8,16 +8,23 @@ class HomeViewAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text(
-        ktitle,
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
-          fontFamily: 'DancingScript',
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          ktitle,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+            fontFamily: 'DancingScript',
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
-    ]);
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0),
+          child: Image.asset('assets/icons/burger_menu.png'),
+        ),
+      ],
+    );
   }
 }

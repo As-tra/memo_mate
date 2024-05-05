@@ -14,7 +14,7 @@ class MemoMate extends StatelessWidget {
     return MaterialApp(
       theme: darkMode,
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
