@@ -6,4 +6,3 @@ final class DateInitial extends DateState {}
 
 final class DateSelected extends DateState {}
 
-final class DateUnselected extends DateState {}

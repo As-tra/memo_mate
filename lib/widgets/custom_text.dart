@@ -17,6 +17,7 @@ class CustomText extends StatelessWidget {
       text,
       style: TextStyle(
         color: color == Colors.transparent ? Colors.white : Colors.black,
+        fontWeight: color != Colors.transparent ? FontWeight.bold : null,
         fontFamily: 'Comfortaa',
         fontSize: size,
       ),

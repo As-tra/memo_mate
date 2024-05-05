@@ -11,7 +11,8 @@ class DateShowCard extends StatelessWidget {
   const DateShowCard({
     super.key,
     required this.date,
-    required this.color, required this.index,
+    required this.color,
+    required this.index,
   });
 
   @override
@@ -22,7 +23,9 @@ class DateShowCard extends StatelessWidget {
       },
       child: Container(
         padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.only(right: 7),
+        margin: EdgeInsets.only(
+          right: index != 9 ? 7 : 0,
+        ),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(11),
