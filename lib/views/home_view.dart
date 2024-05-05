@@ -8,8 +8,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
+    return Scaffold(
+      body: const Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 26,
           vertical: 32,
@@ -24,8 +24,18 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(),
+        backgroundColor: Colors.white,
+        hoverColor: const Color(0xFFFBBC18),
+        elevation: 16,
+        child: const Icon(
+          Icons.add,
+          color: Colors.black,
+          size: 32,
+        ),
+        onPressed: () {},
+      ),
     );
   }
 }
-
-
