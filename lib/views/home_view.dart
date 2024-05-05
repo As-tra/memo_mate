@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memo_mate/widgets/custom_search_bar.dart';
-import 'package:memo_mate/widgets/date_show_card.dart';
+import 'package:memo_mate/widgets/date_bar.dart';
 import 'package:memo_mate/widgets/home_view_app_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -28,19 +28,4 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class DateBar extends StatelessWidget {
-  const DateBar({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return const DateShowCard();
-        },
-      ),
-    );
-  }
-}

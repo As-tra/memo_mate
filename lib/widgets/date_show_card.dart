@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:memo_mate/models/date_modal.dart';
 import 'package:memo_mate/widgets/custom_text.dart';
 
 class DateShowCard extends StatelessWidget {
+  final Date date;
   const DateShowCard({
     super.key,
+    required this.date,
   });
 
   @override
@@ -17,18 +20,18 @@ class DateShowCard extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(11),
       ),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomText(
-            text: 'Mon',
+            text: date.weekDay,
             size: 7,
           ),
           CustomText(
-            text: '27',
+            text: date.day,
           ),
           CustomText(
-            text: 'Apr',
+            text: date.month,
             size: 7,
           )
         ],
