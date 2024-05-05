@@ -8,8 +8,9 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 32,
+      height: 40,
       child: TextField(
+        textAlignVertical: TextAlignVertical.center,
         style: TextStyle(
           color: Theme.of(context).colorScheme.onPrimary,
           fontFamily: 'Comfortaa',
