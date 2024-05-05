@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.5
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -64,8 +65,8 @@ flutter:
     - family: DancingScript
       fonts:
         - asset: assets/fonts/DancingScript-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+    #       - asset: fonts/Schyler-Italic.ttf
+    #         style: italic
     - family: Comfortaa
       fonts:
         - asset: assets/fonts/Comfortaa-VariableFont_wght.ttf

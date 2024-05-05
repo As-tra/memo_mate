@@ -11,30 +11,35 @@ class DateShowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.only(right: 7),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.white,
+    return GestureDetector(
+      onTap: () {
+        
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.only(right: 7),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+          ),
+          borderRadius: BorderRadius.circular(11),
         ),
-        borderRadius: BorderRadius.circular(11),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomText(
-            text: date.weekDay,
-            size: 7,
-          ),
-          CustomText(
-            text: date.day,
-          ),
-          CustomText(
-            text: date.month,
-            size: 7,
-          )
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomText(
+              text: date.weekDay,
+              size: 7,
+            ),
+            CustomText(
+              text: date.day,
+            ),
+            CustomText(
+              text: date.month,
+              size: 7,
+            )
+          ],
+        ),
       ),
     );
   }
