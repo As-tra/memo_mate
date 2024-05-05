@@ -6,7 +6,8 @@ class DateCubit extends Cubit<DateState> {
   DateCubit() : super(DateInitial());
   int current = 0;
 
-  void selectDateCard() {
-    
+  void selectDateCard(int index) {
+    current = index;
+    emit(DateSelected());
   }
 }

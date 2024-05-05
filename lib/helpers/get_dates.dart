@@ -21,7 +21,7 @@ List<Date> getNextTwoWeeks() {
 
   // I don't add the ability to fetch the consequitve 14 days yet!
 
-  for (int i = 0; i < 14; i++) {
+  for (int i = 0; i < 10; i++) {
     nextTwoWeeks.add(
       Date(
         weekDay: weekdays[date.weekday - 1],
