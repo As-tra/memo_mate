@@ -7,13 +7,24 @@ class NotesPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List notes = [
+      'do you homework',
+      'buy something for your mom',
+      'help someone with something',
+      'in the next week you must buy this and this and this and this for your team',
+      'drink water in the summer',
+    ];
     return Expanded(
       child: MasonryGridView.count(
         crossAxisCount: 2,
         mainAxisSpacing: 4,
+        itemCount: notes.length,
         crossAxisSpacing: 4,
         itemBuilder: (context, index) {
-          return const NoteCard();
+          return NoteCard(
+            details: notes[index],
+            color: Colors.blue,
+          );
         },
       ),
     );
@@ -21,7 +32,13 @@ class NotesPart extends StatelessWidget {
 }
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key});
+  final String details;
+  final Color color;
+  const NoteCard({
+    super.key,
+    required this.details,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +46,29 @@ class NoteCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color(0xFFD0C9EB),
+        color: color,
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomText(text: 'Title', color: Colors.black),
-          CustomText(text: 'Edited 1h ago', color: Colors.black)
+          const CustomText(
+            text: 'Title',
+            color: Colors.black,
+            weight: FontWeight.w600,
+          ),
+          const CustomText(
+            text: 'Edited 1h ago',
+            color: Colors.black,
+            size: 10,
+            weight: FontWeight.w300,
+          ),
+          CustomText(text: details, color: Colors.black),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Image.asset('assets/icons/empty_heart.png'),
+            ],
+          )
         ],
       ),
     );
