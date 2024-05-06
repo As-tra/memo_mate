@@ -12,9 +12,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 26,
-          vertical: 32,
+        padding: EdgeInsets.only(
+          left: 26,
+          right: 26,
+          top: 32,
         ),
         child: Column(
           children: [
@@ -44,5 +45,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-
