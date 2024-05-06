@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:memo_mate/constants.dart';
 import 'package:memo_mate/widgets/custom_text.dart';
 
 class NotesPart extends StatelessWidget {
@@ -12,18 +13,20 @@ class NotesPart extends StatelessWidget {
       'buy something for your mom',
       'help someone with something',
       'in the next week you must buy this and this and this and this for your team',
-      'drink water in the summer',
+      'drink water in the summer and buy some water and',
+      'in the next week you must buy this and this and this and this for your team in the next week you must buy this and this and this and this for your team',
+      'in the next week you must buy this and this and this and just some words',
     ];
     return Expanded(
       child: MasonryGridView.count(
         crossAxisCount: 2,
-        mainAxisSpacing: 4,
+        mainAxisSpacing: 13,
         itemCount: notes.length,
-        crossAxisSpacing: 4,
+        crossAxisSpacing: 13,
         itemBuilder: (context, index) {
           return NoteCard(
             details: notes[index],
-            color: Colors.blue,
+            color: knoteColors[index % knoteColors.length],
           );
         },
       ),
@@ -62,7 +65,10 @@ class NoteCard extends StatelessWidget {
             size: 10,
             weight: FontWeight.w300,
           ),
-          CustomText(text: details, color: Colors.black),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: CustomText(text: details, color: Colors.black),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
