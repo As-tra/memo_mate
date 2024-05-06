@@ -35,16 +35,25 @@ class DateShowCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomText(
-              color: color,
+              color: color == Colors.transparent ? Colors.white : Colors.black,
+              weight: color != Colors.transparent
+                  ? FontWeight.bold
+                  : FontWeight.normal,
               text: date.weekDay,
               size: 7,
             ),
             CustomText(
-              color: color,
+              color: color == Colors.transparent ? Colors.white : Colors.black,
+              weight: color != Colors.transparent
+                  ? FontWeight.bold
+                  : FontWeight.normal,
               text: date.day,
             ),
             CustomText(
-              color: color,
+              color: color == Colors.transparent ? Colors.white : Colors.black,
+              weight: color != Colors.transparent
+                  ? FontWeight.bold
+                  : FontWeight.normal,
               text: date.month,
               size: 7,
             )

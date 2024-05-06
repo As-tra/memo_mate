@@ -10,7 +10,7 @@ class DateBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Date> dates = getNext15Days();
+    List<Date> dates = getNext10Days();
     return BlocProvider(
       create: (context) => DateCubit(),
       child: SizedBox(

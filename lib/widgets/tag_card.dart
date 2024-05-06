@@ -33,7 +33,9 @@ class TagCard extends StatelessWidget {
           color: color,
         ),
         child: CustomText(
-          color: color,
+          color: color == Colors.transparent ? Colors.white : Colors.black,
+          weight:
+              color != Colors.transparent ? FontWeight.bold : FontWeight.normal,
           text: text,
           size: 12,
         ),

@@ -1,6 +1,6 @@
 import 'package:memo_mate/models/date_modal.dart';
 
-List<Date> getNext15Days() {
+List<Date> getNext10Days() {
   List<String> weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   List<String> months = [
     'Jan',

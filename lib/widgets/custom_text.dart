@@ -4,11 +4,13 @@ class CustomText extends StatelessWidget {
   final String text;
   final double size;
   final Color color;
+  final FontWeight weight;
   const CustomText({
     super.key,
     required this.text,
     this.size = 15,
     required this.color,
+    this.weight = FontWeight.normal,
   });
 
   @override
@@ -16,8 +18,8 @@ class CustomText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color: color == Colors.transparent ? Colors.white : Colors.black,
-        fontWeight: color != Colors.transparent ? FontWeight.bold : null,
+        color: color,
+        fontWeight: weight,
         fontFamily: 'Comfortaa',
         fontSize: size,
       ),
