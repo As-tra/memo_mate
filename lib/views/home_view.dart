@@ -21,13 +21,13 @@ class HomeView extends StatelessWidget {
             CustomSearchBar(),
             SizedBox(height: 17),
             DateBar(),
+            SizedBox(height: 17),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: Colors.white,
-        hoverColor: const Color(0xFFFBBC18),
         elevation: 16,
         child: const Icon(
           Icons.add,

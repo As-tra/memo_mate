@@ -4,11 +4,11 @@ import 'package:memo_mate/cubits/date_cubit/date_cubit.dart';
 import 'package:memo_mate/models/date_modal.dart';
 import 'package:memo_mate/widgets/custom_text.dart';
 
-class DateShowCard extends StatelessWidget {
+class TagCard extends StatelessWidget {
   final Date date;
   final Color color;
   final int index;
-  const DateShowCard({
+  const TagCard({
     super.key,
     required this.date,
     required this.color,
