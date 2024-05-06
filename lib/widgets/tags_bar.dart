@@ -9,7 +9,7 @@ class TagsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 40,
       child: ListView.builder(
         itemCount: BlocProvider.of<TagsCubit>(context).tags.length,
         scrollDirection: Axis.horizontal,

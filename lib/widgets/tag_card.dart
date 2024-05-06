@@ -21,24 +21,21 @@ class TagCard extends StatelessWidget {
         BlocProvider.of<TagsCubit>(context).selectTagItem(index);
       },
       child: Container(
-        padding: const EdgeInsets.all(8),
-        margin: EdgeInsets.only(
-          right: index != 9 ? 7 : 0,
+        padding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 16,
         ),
+        margin: const EdgeInsets.only(right: 8),
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(11),
           color: color,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomText(
-              color: color,
-              text: text,
-              size: 7,
-            ),
-          ],
+        child: CustomText(
+          color: color,
+          text: text,
+          size: 12,
         ),
       ),
     );
