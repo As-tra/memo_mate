@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_mate/cubits/tags_cubit/tags_cubit.dart';
 import 'package:memo_mate/theme/theme.dart';
 import 'package:memo_mate/views/home_view.dart';
 
@@ -11,10 +13,17 @@ class MemoMate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: darkMode,
-      debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TagsCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: darkMode,
+        debugShowCheckedModeBanner: false,
+        home: const HomeView(),
+      ),
     );
   }
 }

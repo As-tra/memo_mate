@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:memo_mate/widgets/custom_search_bar.dart';
 import 'package:memo_mate/widgets/date_bar.dart';
 import 'package:memo_mate/widgets/home_view_app_bar.dart';
+import 'package:memo_mate/widgets/tags_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -22,6 +23,7 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 17),
             DateBar(),
             SizedBox(height: 17),
+            TagsBar(),
           ],
         ),
       ),

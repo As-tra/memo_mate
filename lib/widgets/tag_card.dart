@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:memo_mate/cubits/date_cubit/date_cubit.dart';
-import 'package:memo_mate/models/date_modal.dart';
+import 'package:memo_mate/cubits/tags_cubit/tags_cubit.dart';
 import 'package:memo_mate/widgets/custom_text.dart';
 
 class TagCard extends StatelessWidget {
-  final Date date;
+  final String text;
   final Color color;
   final int index;
   const TagCard({
     super.key,
-    required this.date,
+    required this.text,
     required this.color,
     required this.index,
   });
@@ -19,7 +18,7 @@ class TagCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<DateCubit>(context).selectDateCard(index);
+        BlocProvider.of<TagsCubit>(context).selectTagItem(index);
       },
       child: Container(
         padding: const EdgeInsets.all(8),
@@ -36,18 +35,9 @@ class TagCard extends StatelessWidget {
           children: [
             CustomText(
               color: color,
-              text: date.weekDay,
+              text: text,
               size: 7,
             ),
-            CustomText(
-              color: color,
-              text: date.day,
-            ),
-            CustomText(
-              color: color,
-              text: date.month,
-              size: 7,
-            )
           ],
         ),
       ),
