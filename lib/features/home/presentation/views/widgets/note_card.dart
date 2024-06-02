@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:memo_mate/widgets/custom_text.dart';
+import 'package:memo_mate/features/home/presentation/views/widgets/custom_text.dart';
 
 class NoteCard extends StatelessWidget {
   final String details;

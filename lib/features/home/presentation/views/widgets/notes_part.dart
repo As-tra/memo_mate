@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:memo_mate/constants.dart';
-import 'package:memo_mate/widgets/note_card.dart';
+import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/features/home/presentation/views/widgets/note_card.dart';
 
 class NotesPart extends StatelessWidget {
   const NotesPart({super.key});

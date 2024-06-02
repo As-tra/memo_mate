@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:memo_mate/cubits/tags_cubit/tags_cubit.dart';
-import 'package:memo_mate/theme/theme.dart';
-import 'package:memo_mate/views/home_view.dart';
+import 'package:memo_mate/features/home/presentation/manager/tags_cubit/tags_cubit.dart';
+import 'package:memo_mate/core/theme/theme.dart';
+import 'package:memo_mate/features/home/presentation/views/home_view.dart';
 
 void main() {
   runApp(const MemoMate());

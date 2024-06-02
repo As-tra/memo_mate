@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/constants.dart';
+import 'package:memo_mate/core/constants.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({

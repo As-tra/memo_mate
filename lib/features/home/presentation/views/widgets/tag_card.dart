@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:memo_mate/cubits/tags_cubit/tags_cubit.dart';
-import 'package:memo_mate/widgets/custom_text.dart';
+import 'package:memo_mate/features/home/presentation/manager/tags_cubit/tags_cubit.dart';
+import 'package:memo_mate/features/home/presentation/views/widgets/custom_text.dart';
 
 class TagCard extends StatelessWidget {
   final String text;
