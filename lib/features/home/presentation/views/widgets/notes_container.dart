@@ -3,8 +3,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/note_card.dart';
 
-class NotesPart extends StatelessWidget {
-  const NotesPart({super.key});
+class NotesContainer extends StatelessWidget {
+  const NotesContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
