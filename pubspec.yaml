@@ -72,6 +72,9 @@ flutter:
     - family: Comfortaa
       fonts:
         - asset: assets/fonts/Comfortaa-VariableFont_wght.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

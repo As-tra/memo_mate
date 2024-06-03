@@ -12,7 +12,7 @@ class HomeViewAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          ktitle,
+          kTitle,
           style: TextStyle(
             color: Theme.of(context).colorScheme.primary,
             fontFamily: 'DancingScript',

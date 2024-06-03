@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-String ktitle = 'Memo Mate';
+const kTitle = 'Memo Mate';
+const kInter = 'Inter';
+const kComfortaa = 'Comfortaa';
+const kDancingScript = 'DancingScript';
 List<Color> knoteColors = const [
   Color(0xFFD0C9EB),
   Color(0xFFD9E8FC),
