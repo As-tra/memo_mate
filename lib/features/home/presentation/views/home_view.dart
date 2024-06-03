@@ -13,9 +13,9 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: const Padding(
         padding: EdgeInsets.only(
-          left: 26,
-          right: 26,
-          top: 32,
+          left: 18.0,
+          right: 18,
+          top: 22,
         ),
         child: Column(
           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memo_mate/core/utils/styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
@@ -11,20 +12,18 @@ class CustomSearchBar extends StatelessWidget {
       height: 40,
       child: TextField(
         textAlignVertical: TextAlignVertical.center,
-        style: TextStyle(
+        style: Styles.textStyle15.copyWith(
+          fontWeight: FontWeight.w500,
           color: Theme.of(context).colorScheme.onPrimary,
-          fontFamily: 'Comfortaa',
         ),
         decoration: InputDecoration(
           prefixIcon: Image.asset('assets/icons/searchnormal1.png'),
           fillColor: Colors.white,
           filled: true,
           hintText: 'Search for notes',
-          hintStyle: TextStyle(
-            fontFamily: 'Comfortaa',
-            color: Theme.of(context).colorScheme.onPrimary,
-            fontSize: 11,
+          hintStyle: Styles.textStyle11.copyWith(
             fontWeight: FontWeight.w500,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),

@@ -8,7 +8,7 @@ ThemeData darkMode = ThemeData(
   fontFamily: kComfortaa,
   colorScheme: const ColorScheme.dark(
     background: Color(0xFF1E1E1E),
-    primary: Color(0xFFDEDEDE),
+    primary: Color(0xFFFFFFFF),
     onPrimary: Color(0xFF7C7C7C),
   ),
 );

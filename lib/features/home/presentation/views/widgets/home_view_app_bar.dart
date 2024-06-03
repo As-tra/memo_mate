@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/styles.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({
@@ -13,17 +15,11 @@ class HomeViewAppBar extends StatelessWidget {
       children: [
         Text(
           kTitle,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontFamily: 'DancingScript',
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
+          style: Styles.textStyle32.copyWith(
+            fontFamily: kDancingScript,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 8.0),
-          child: Image.asset('assets/icons/burger_menu.png'),
-        ),
+        SvgPicture.asset('assets/icons/menu.svg'),
       ],
     );
   }
