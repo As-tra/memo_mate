@@ -20,6 +20,7 @@ class MemoMate extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        themeMode: ThemeMode.system,
         theme: darkMode,
         debugShowCheckedModeBanner: false,
         home: const HomeView(),

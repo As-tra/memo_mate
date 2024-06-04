@@ -16,20 +16,22 @@ class NotesContainer extends StatelessWidget {
       'drink water in the summer and buy some water and',
       'in the next week you must buy this and this and this and this for your team in the next week you must buy this and this and this and this for your team',
       'in the next week you must buy this and this and this and just some words',
+      'You may wonder why writing works without async code. This is one of the main strengths of Hive.',
+      'The changes are written to the disk as soon as possible in the background but all listeners are notified immediately. If the async operation fails (which it should not),',
+      'all listeners are notified again with the old values.'
     ];
-    return Expanded(
-      child: MasonryGridView.count(
-        crossAxisCount: 2,
-        mainAxisSpacing: 13,
-        itemCount: notes.length,
-        crossAxisSpacing: 13,
-        itemBuilder: (context, index) {
-          return NoteCard(
-            details: notes[index],
-            color: knoteColors[index % knoteColors.length],
-          );
-        },
-      ),
+    return MasonryGridView.count(
+      crossAxisCount: 2,
+      mainAxisSpacing: 13,
+      itemCount: notes.length,
+      crossAxisSpacing: 13,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return NoteCard(
+          details: notes[index],
+          color: knoteColors[index % knoteColors.length],
+        );
+      },
     );
   }
 }

@@ -37,7 +37,7 @@ class NoteCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: Text(
-              'Do your homework',
+              details,
               style: Styles.textStyle15.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -49,7 +49,7 @@ class NoteCard extends StatelessWidget {
             children: [
               Image.asset('assets/icons/empty_heart.png'),
             ],
-          )
+          ),
         ],
       ),
     );
