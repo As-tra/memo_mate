@@ -3,7 +3,6 @@ import 'package:memo_mate/features/home/presentation/views/widgets/custom_search
 import 'package:memo_mate/features/home/presentation/views/widgets/date_bar.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/empty_notes_view.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/home_view_app_bar.dart';
-import 'package:memo_mate/features/home/presentation/views/widgets/notes_container.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/tags_bar.dart';
 
 class HomeView extends StatelessWidget {
