@@ -1,5 +1,5 @@
 import 'package:memo_mate/features/home/data/models/dateModel/date_modal.dart';
-import 'package:memo_mate/features/home/data/models/noteModel/note_modal.dart';
+import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 
 abstract class HomeRepo {
   List<NoteModal> getNotesByTitle({required String title});

@@ -8,12 +8,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Padding(
-          padding: EdgeInsets.only(
-            left: 18.0,
-            right: 18,
-            top: 22,
-          ),
-          child: HomeViewBody()),
+        padding: EdgeInsets.only(
+          left: 18.0,
+          right: 18,
+          top: 22,
+        ),
+        child: HomeViewBody(),
+      ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         backgroundColor: Colors.white,
