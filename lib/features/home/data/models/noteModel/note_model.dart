@@ -23,6 +23,8 @@ class NoteModel extends HiveObject {
   final DateTime deadline;
   @HiveField(8)
   final bool isFavorite;
+  @HiveField(9)
+  final bool content;
 
   NoteModel({
     required this.title,
@@ -34,5 +36,6 @@ class NoteModel extends HiveObject {
     required this.deadline,
     required this.isFavorite,
     required this.isSecured,
+    required this.content,
   });
 }

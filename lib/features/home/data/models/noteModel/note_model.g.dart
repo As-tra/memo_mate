@@ -26,13 +26,14 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       deadline: fields[7] as DateTime,
       isFavorite: fields[8] as bool,
       isSecured: fields[3] as bool,
+      content: fields[9] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, NoteModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       ..writeByte(7)
       ..write(obj.deadline)
       ..writeByte(8)
-      ..write(obj.isFavorite);
+      ..write(obj.isFavorite)
+      ..writeByte(9)
+      ..write(obj.content);
   }
 
   @override
