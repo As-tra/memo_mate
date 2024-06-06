@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/features/home/presentation/manager/date_cubit/date_cubit.dart';
+import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
 import 'package:memo_mate/features/home/data/models/dateModel/date_model.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/custom_text.dart';
 
@@ -19,7 +20,10 @@ class DateShowCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<DateCubit>(context).fetchNotesByDate(index);
+        BlocProvider.of<NotesCubit>(context).fetchNotesByDate(
+          date: DateTime.now(),
+        );
+        BlocProvider.of<DateCubit>(context).selectDate(index: index);
       },
       child: Container(
         padding: const EdgeInsets.all(8),

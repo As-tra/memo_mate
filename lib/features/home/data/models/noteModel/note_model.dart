@@ -24,7 +24,9 @@ class NoteModel extends HiveObject {
   @HiveField(8)
   final bool isFavorite;
   @HiveField(9)
-  final bool content;
+  final dynamic content;
+  @HiveField(10)
+  final int color;
 
   NoteModel({
     required this.title,
@@ -37,5 +39,6 @@ class NoteModel extends HiveObject {
     required this.isFavorite,
     required this.isSecured,
     required this.content,
+    required this.color,
   });
 }

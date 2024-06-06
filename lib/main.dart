@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/tags_cubit/tags_cubit.dart';
 import 'package:memo_mate/core/theme/theme.dart';
 import 'package:memo_mate/features/home/presentation/views/home_view.dart';
 
 void main() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNoteBox);
   runApp(const MemoMate());
 }
 

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 
 class NoteCard extends StatelessWidget {
-  final String details;
-  final Color color;
+  final NoteModel note;
   const NoteCard({
     super.key,
-    required this.details,
-    required this.color,
+    required this.note,
   });
 
   @override
@@ -16,19 +15,19 @@ class NoteCard extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: color,
+        color: Color(note.color),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Title',
+            note.title,
             style: Styles.textStyle15.copyWith(
               color: Colors.black,
             ),
           ),
           Text(
-            'Edited 1h ago',
+            note.dateOfLastEdit.toString(),
             style: Styles.textStyle10.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w300,
@@ -37,7 +36,7 @@ class NoteCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: Text(
-              details,
+              note.content,
               style: Styles.textStyle15.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
