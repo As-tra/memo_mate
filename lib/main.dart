@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:memo_mate/features/home/presentation/manager/tags_cubit/tags_cubit.dart';
 import 'package:memo_mate/core/theme/theme.dart';
 import 'package:memo_mate/features/home/presentation/views/home_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
   runApp(const MemoMate());
 }
 

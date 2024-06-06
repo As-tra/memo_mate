@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_mate/features/home/data/models/dateModel/date_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/date_cubit/date_cubit.dart';
 import 'package:memo_mate/core/utils/functions/get_dates.dart';
-import 'package:memo_mate/features/home/data/models/dateModel/date_modal.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/date_show_card.dart';
 
 class DateBar extends StatelessWidget {

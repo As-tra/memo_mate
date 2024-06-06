@@ -4,6 +4,7 @@ const kTitle = 'Memo Mate';
 const kInter = 'Inter';
 const kComfortaa = 'Comfortaa';
 const kDancingScript = 'DancingScript';
+const kNoteBox = 'NoteBox';
 List<Color> knoteColors = const [
   Color(0xFFD0C9EB),
   Color(0xFFD9E8FC),
