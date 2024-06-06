@@ -31,13 +31,43 @@ class HomeRepoImpl implements HomeRepo {
 
   @override
   Either<Failure, List<NoteModel>> getNotesByDate({required DateTime date}) {
-    // TODO: implement getNotesByDate
-    throw UnimplementedError();
+    try {
+      var noteBox = Hive.box<NoteModel>(kNoteBox);
+      List<NoteModel> notes = noteBox.values.toList();
+      List<NoteModel> res = [];
+      for (var note in notes) {
+        if (note.deadline == date) {
+          res.add(note);
+        }
+      }
+      return right(res);
+    } catch (e) {
+      return left(
+        CacheFailure(
+          errorMessage: e.toString(),
+        ),
+      );
+    }
   }
 
   @override
   Either<Failure, List<NoteModel>> getNotesByTitle({required String title}) {
-    // TODO: implement getNotesByTitle
-    throw UnimplementedError();
+    try {
+      var noteBox = Hive.box<NoteModel>(kNoteBox);
+      List<NoteModel> notes = noteBox.values.toList();
+      List<NoteModel> res = [];
+      for (var note in notes) {
+        if (note.title == title) {
+          res.add(note);
+        }
+      }
+      return right(res);
+    } catch (e) {
+      return left(
+        CacheFailure(
+          errorMessage: e.toString(),
+        ),
+      );
+    }
   }
 }
