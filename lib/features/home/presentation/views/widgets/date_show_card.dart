@@ -19,7 +19,7 @@ class DateShowCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<DateCubit>(context).selectDateCard(index);
+        BlocProvider.of<DateCubit>(context).fetchNotesByDate(index);
       },
       child: Container(
         padding: const EdgeInsets.all(8),

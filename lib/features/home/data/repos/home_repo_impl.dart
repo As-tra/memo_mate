@@ -8,14 +8,14 @@ import 'package:memo_mate/features/home/data/repos/home_repo.dart';
 class HomeRepoImpl implements HomeRepo {
   @override
   Either<Failure, List<NoteModel>> getNotesByCategory(
-      {required String category}) {
+      {required String category, required DateTime date}) {
     try {
       var noteBox = Hive.box<NoteModel>(kNoteBox);
       List<NoteModel> notes = noteBox.values.toList();
       // parse notes by category
       List<NoteModel> res = [];
       for (var note in notes) {
-        if (note.category == category) {
+        if (note.category == category && note.deadline == date) {
           res.add(note);
         }
       }
@@ -51,13 +51,16 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Either<Failure, List<NoteModel>> getNotesByTitle({required String title}) {
+  Either<Failure, List<NoteModel>> getNotesByTitle({
+    required String title,
+    required DateTime date,
+  }) {
     try {
       var noteBox = Hive.box<NoteModel>(kNoteBox);
       List<NoteModel> notes = noteBox.values.toList();
       List<NoteModel> res = [];
       for (var note in notes) {
-        if (note.title == title) {
+        if (note.title == title && note.deadline == date) {
           res.add(note);
         }
       }
