@@ -7,29 +7,27 @@ class EmptyNotesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          SvgPicture.asset('assets/icons/empty_note.svg'),
-          Text(
-            'There is no notes',
-            style: Styles.textStyle32.copyWith(
-              fontWeight: FontWeight.w600,
-            ),
+    return Column(
+      children: [
+        SvgPicture.asset('assets/icons/empty_note.svg'),
+        Text(
+          'There is no notes',
+          style: Styles.textStyle32.copyWith(
+            fontWeight: FontWeight.w600,
           ),
-          const SizedBox(height: 25),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset('assets/icons/pen.svg'),
-              const Text(
-                'Make a new one',
-                style: Styles.textStyle20,
-              ),
-            ],
-          )
-        ],
-      ),
+        ),
+        const SizedBox(height: 25),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset('assets/icons/pen.svg'),
+            const Text(
+              'Make a new one',
+              style: Styles.textStyle20,
+            ),
+          ],
+        )
+      ],
     );
   }
 }

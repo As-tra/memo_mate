@@ -9,8 +9,12 @@ class NotesCubit extends Cubit<NoteState> {
   final HomeRepo homeRepo;
   List<NoteModel> notes = [];
 
-  void fetchNotesByDate({required DateTime date}) {
-    var results = homeRepo.getNotesByDate(date: date);
+  DateTime currentDate = DateTime.now();
+  String currentCategory = 'All';
+
+  void getNotes() {
+    var results =
+        homeRepo.getNotesByCategoryAndDate(date: currentDate, category: currentCategory);
     results.fold(
       (failure) {
         emit(NoteFailure(
@@ -18,12 +22,19 @@ class NotesCubit extends Cubit<NoteState> {
         ));
       },
       (success) {
-        if (results.length() > 0) {
+        if (success.isNotEmpty) {
           emit(NoteSuccess(notes: notes));
         } else {
           emit(NoteEmpty());
         }
       },
     );
+  }
+
+  @override
+  void onChange(Change<NoteState> change) {
+    // TODO: implement onChange
+    super.onChange(change);
+    print(change.toString());
   }
 }

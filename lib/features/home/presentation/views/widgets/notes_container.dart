@@ -37,11 +37,10 @@ class NotesContainer extends StatelessWidget {
               );
             },
           );
-        } else if (state is NoteEmpty) {
-          return const EmptyNotesContainer();
-        } else {
-          // here create a custom error widget
+        } else if (state is NoteFailure) {
           return const Placeholder();
+        } else {
+          return const EmptyNotesContainer();
         }
       },
     );
