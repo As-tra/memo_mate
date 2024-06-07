@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/errors/failures.dart';
+import 'package:memo_mate/core/utils/functions/comare_dates.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/data/repos/home_repo.dart';
 
@@ -14,7 +15,7 @@ class HomeRepoImpl implements HomeRepo {
       List<NoteModel> notes = noteBox.values.toList();
       List<NoteModel> resutls = [];
       for (var note in notes) {
-        if (note.category == category && note.deadline == date) {
+        if (note.category == category && isSameDay(note.deadline, date)) {
           resutls.add(note);
         }
       }

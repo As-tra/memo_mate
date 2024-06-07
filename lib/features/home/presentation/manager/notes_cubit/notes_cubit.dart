@@ -13,6 +13,7 @@ class NotesCubit extends Cubit<NotesState> {
   String currentCategory = 'All';
 
   void getNotes() {
+    
     var results = homeRepo.getNotesByCategoryAndDate(
         date: currentDate, category: currentCategory);
     results.fold(
