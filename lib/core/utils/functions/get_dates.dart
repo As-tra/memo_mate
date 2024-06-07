@@ -8,4 +8,3 @@ List<DateTime> getNext10Days() {
   }
   return next10days;
 }
-

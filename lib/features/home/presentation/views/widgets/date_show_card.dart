@@ -17,7 +17,8 @@ class DateShowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String,String> formattedDate = getFormattedDate(date);
+
+    Map<String, String> formattedDate = getFormattedDate(date);
     return GestureDetector(
       onTap: () {
         BlocProvider.of<NotesCubit>(context).currentDate = date;
@@ -50,7 +51,7 @@ class DateShowCard extends StatelessWidget {
               weight: color != Colors.transparent
                   ? FontWeight.bold
                   : FontWeight.normal,
-              text: formattedDate['date']!,   
+              text: formattedDate['day']!,
             ),
             CustomText(
               color: color == Colors.transparent ? Colors.white : Colors.black,
@@ -65,8 +66,8 @@ class DateShowCard extends StatelessWidget {
       ),
     );
   }
-  
-  Map<String,String> getFormattedDate(DateTime date) {
+
+  Map<String, String> getFormattedDate(DateTime date) {
     List<String> weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     List<String> months = [
       'Jan',
@@ -82,15 +83,15 @@ class DateShowCard extends StatelessWidget {
       'Nov',
       'Dec'
     ];
-    String weekDay =  weekdays[date.weekday - 1];
+    String weekDay = weekdays[date.weekday - 1];
     String month = months[date.month - 1];
     String day = '';
-    
+
     if (date.day > 9) {
-      day = '${date.weekday}';
+      day = '${date.day}';
     } else {
-      day = '0${date.weekday}';
+      day = '0${date.day}';
     }
-    return {'weekDay':weekDay,'month':month,'day':day};
+    return {'weekDay': weekDay, 'month': month, 'day': day};
   }
 }
