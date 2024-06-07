@@ -22,7 +22,7 @@ class NotesContainer extends StatelessWidget {
     //   'The changes are written to the disk as soon as possible in the background but all listeners are notified immediately. If the async operation fails (which it should not),',
     //   'all listeners are notified again with the old values.'
     // ];
-    return BlocBuilder<NotesCubit, NoteState>(
+    return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         if (state is NoteSuccess) {
           return MasonryGridView.count(

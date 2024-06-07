@@ -4,7 +4,7 @@ import 'package:memo_mate/features/home/data/repos/home_repo.dart';
 
 part 'notes_state.dart';
 
-class NotesCubit extends Cubit<NoteState> {
+class NotesCubit extends Cubit<NotesState> {
   NotesCubit(this.homeRepo) : super(NoteInitial());
   final HomeRepo homeRepo;
   List<NoteModel> notes = [];
@@ -13,8 +13,8 @@ class NotesCubit extends Cubit<NoteState> {
   String currentCategory = 'All';
 
   void getNotes() {
-    var results =
-        homeRepo.getNotesByCategoryAndDate(date: currentDate, category: currentCategory);
+    var results = homeRepo.getNotesByCategoryAndDate(
+        date: currentDate, category: currentCategory);
     results.fold(
       (failure) {
         emit(NoteFailure(
@@ -32,7 +32,7 @@ class NotesCubit extends Cubit<NoteState> {
   }
 
   @override
-  void onChange(Change<NoteState> change) {
+  void onChange(Change<NotesState> change) {
     // TODO: implement onChange
     super.onChange(change);
     print(change.toString());

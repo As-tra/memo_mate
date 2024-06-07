@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/features/home/presentation/manager/date_cubit/date_cubit.dart';
 import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
-import 'package:memo_mate/features/home/data/models/dateModel/date_model.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/custom_text.dart';
 
 class DateShowCard extends StatelessWidget {
-  final Date date;
+  final DateTime date;
   final Color color;
   final int index;
   const DateShowCard({
@@ -18,11 +17,11 @@ class DateShowCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String,String> formattedDate = getFormattedDate(date);
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<NotesCubit>(context).getNotes(
-         
-        );
+        BlocProvider.of<NotesCubit>(context).currentDate = date;
+        BlocProvider.of<NotesCubit>(context).getNotes();
         BlocProvider.of<DateCubit>(context).selectDate(index: index);
       },
       child: Container(
@@ -43,7 +42,7 @@ class DateShowCard extends StatelessWidget {
               weight: color != Colors.transparent
                   ? FontWeight.bold
                   : FontWeight.normal,
-              text: date.weekDay,
+              text: formattedDate['weekDay']!,
               size: 7,
             ),
             CustomText(
@@ -51,19 +50,47 @@ class DateShowCard extends StatelessWidget {
               weight: color != Colors.transparent
                   ? FontWeight.bold
                   : FontWeight.normal,
-              text: date.day,
+              text: formattedDate['date']!,   
             ),
             CustomText(
               color: color == Colors.transparent ? Colors.white : Colors.black,
               weight: color != Colors.transparent
                   ? FontWeight.bold
                   : FontWeight.normal,
-              text: date.month,
+              text: formattedDate['month']!,
               size: 7,
             )
           ],
         ),
       ),
     );
+  }
+  
+  Map<String,String> getFormattedDate(DateTime date) {
+    List<String> weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    List<String> months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ];
+    String weekDay =  weekdays[date.weekday - 1];
+    String month = months[date.month - 1];
+    String day = '';
+    
+    if (date.day > 9) {
+      day = '${date.weekday}';
+    } else {
+      day = '0${date.weekday}';
+    }
+    return {'weekDay':weekDay,'month':month,'day':day};
   }
 }
