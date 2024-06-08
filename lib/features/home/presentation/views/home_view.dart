@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memo_mate/core/utils/app_router.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -24,7 +26,9 @@ class HomeView extends StatelessWidget {
           color: Colors.black,
           size: 32,
         ),
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRouter.kAddNoteView);
+        },
       ),
     );
   }
