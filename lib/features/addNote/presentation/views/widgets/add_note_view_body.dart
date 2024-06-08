@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/widgets.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
 
 class AddNoteViewBody extends StatelessWidget {
   const AddNoteViewBody({super.key});
@@ -24,17 +25,3 @@ class AddNoteViewBody extends StatelessWidget {
   }
 }
 
-class AddNoteAppBar extends StatelessWidget {
-  const AddNoteAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Icon(Icons.arrow_back_ios),
-        SvgPicture.asset('assets/icons/empty_heart.svg'),
-      ],
-    );
-  }
-}

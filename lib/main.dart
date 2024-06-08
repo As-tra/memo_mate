@@ -7,7 +7,6 @@ import 'package:memo_mate/core/utils/service_locator.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/tags_cubit/tags_cubit.dart';
 import 'package:memo_mate/core/theme/theme.dart';
-import 'package:memo_mate/features/home/presentation/views/home_view.dart';
 
 void main() async {
   setup();
