@@ -15,8 +15,14 @@ class HomeRepoImpl implements HomeRepo {
       List<NoteModel> notes = noteBox.values.toList();
       List<NoteModel> resutls = [];
       for (var note in notes) {
-        if (note.category == category && isSameDay(note.deadline, date)) {
-          resutls.add(note);
+        if (category == kAllCategories) {
+          if (isSameDay(note.deadline, date)) {
+            resutls.add(note);
+          }
+        } else {
+          if (note.category == category && isSameDay(note.deadline, date)) {
+            resutls.add(note);
+          }
         }
       }
       return right(resutls);
@@ -28,7 +34,6 @@ class HomeRepoImpl implements HomeRepo {
       );
     }
   }
-
 
   @override
   Either<Failure, List<NoteModel>> getNotesByTitle({
