@@ -44,8 +44,14 @@ class NoteCard extends StatelessWidget {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text(
+                note.tags.join(' | '),
+                style: Styles.textStyle9.copyWith(
+                  color: Colors.black,
+                ),
+              ),
               Image.asset('assets/icons/empty_heart.png'),
             ],
           ),

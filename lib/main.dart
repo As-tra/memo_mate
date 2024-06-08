@@ -15,7 +15,7 @@ void main() async {
     NoteModel(
         title: 'do you homework',
         category: 'All',
-        tags: ['Top Priority'],
+        tags: ['Top Priority', 'Important'],
         code: 0,
         dateOfCreation: DateTime.now(),
         dateOfLastEdit: DateTime.now(),

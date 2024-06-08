@@ -7,7 +7,7 @@ part 'notes_state.dart';
 class NotesCubit extends Cubit<NotesState> {
   NotesCubit(this.homeRepo) : super(NoteInitial());
   final HomeRepo homeRepo;
-  List<NoteModel> notes = [];
+  // List<NoteModel> notes = [];
 
   DateTime currentDate = DateTime.now();
   String currentCategory = 'All';
@@ -24,7 +24,7 @@ class NotesCubit extends Cubit<NotesState> {
       },
       (success) {
         if (success.isNotEmpty) {
-          emit(NoteSuccess(notes: notes));
+          emit(NoteSuccess(notes: success));
         } else {
           emit(NoteEmpty());
         }

@@ -32,6 +32,7 @@ class NotesContainer extends StatelessWidget {
             crossAxisSpacing: 13,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
+              debugPrint('${state.notes.length}');
               return NoteCard(
                 note: state.notes[index],
               );

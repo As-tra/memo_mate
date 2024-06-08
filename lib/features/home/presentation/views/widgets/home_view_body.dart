@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_mate/core/utils/service_locator.dart';
 import 'package:memo_mate/features/home/data/repos/home_repo_impl.dart';
 import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/custom_search_bar.dart';
@@ -14,7 +15,8 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(HomeRepoImpl()),
+      // here use the dependency injection :)
+      create: (context) => NotesCubit(getIt.get<HomeRepoImpl>()),
       child: NestedScrollView(
         physics: const BouncingScrollPhysics(),
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
