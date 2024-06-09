@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar.dart';
 
 class AddNoteViewBody extends StatelessWidget {
   const AddNoteViewBody({super.key});
@@ -19,9 +20,12 @@ class AddNoteViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: AddNoteAppBar(),
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 24),
+            child: CustomToolBar(),
+          ),
         ],
       ),
     );
   }
 }
-
