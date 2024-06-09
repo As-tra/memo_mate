@@ -18,7 +18,6 @@ class HomeViewBody extends StatelessWidget {
       // here use the dependency injection :)
       create: (context) => NotesCubit(getIt.get<HomeRepoImpl>()),
       child: NestedScrollView(
-        physics: const BouncingScrollPhysics(),
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
             [
           const SliverToBoxAdapter(
