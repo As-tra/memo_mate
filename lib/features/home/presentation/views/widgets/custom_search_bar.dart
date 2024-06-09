@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
@@ -17,7 +18,7 @@ class CustomSearchBar extends StatelessWidget {
           color: Theme.of(context).colorScheme.onPrimary,
         ),
         decoration: InputDecoration(
-          prefixIcon: Image.asset('assets/icons/searchnormal1.png'),
+          prefixIcon: Image.asset(AssetsData.searchLogo),
           fillColor: Colors.white,
           filled: true,
           hintText: 'Search for notes',

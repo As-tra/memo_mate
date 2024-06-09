@@ -29,3 +29,13 @@ class AddNoteViewBody extends StatelessWidget {
     );
   }
 }
+
+
+class ImagePlaceHolder extends StatelessWidget {
+  const ImagePlaceHolder({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

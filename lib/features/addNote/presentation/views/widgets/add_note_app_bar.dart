@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:memo_mate/core/utils/assets.dart';
 
 class AddNoteAppBar extends StatefulWidget {
   const AddNoteAppBar({super.key});
@@ -31,9 +32,7 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
             });
           },
           child: SvgPicture.asset(
-            isLiked
-                ? 'assets/icons/filled_heart.svg'
-                : 'assets/icons/empty_heart.svg',
+            isLiked ? AssetsData.filledHeartIcon : AssetsData.emptyHeartIcon,
           ),
         ),
       ],
