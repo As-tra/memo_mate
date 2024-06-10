@@ -32,7 +32,7 @@ class _ImagePlaceholderState extends State<ImagePlaceholder> {
       },
       child: DottedBorder(
         borderType: BorderType.RRect,
-        color: Theme.of(context).colorScheme.primary.withAlpha(155),
+        color: Theme.of(context).colorScheme.primary.withOpacity(0.6),
         radius: const Radius.circular(12),
         dashPattern: const [22, 12],
         child: _image == null

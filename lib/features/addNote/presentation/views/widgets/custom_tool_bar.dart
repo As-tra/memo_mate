@@ -29,7 +29,7 @@ class CustomToolBar extends StatelessWidget {
           ),
           CustomToolBarIcon(
             onpressed: () {},
-            icon: Icons.format_clear,
+            icon: Icons.title,
           ),
           CustomToolBarIcon(
             onpressed: () {},
