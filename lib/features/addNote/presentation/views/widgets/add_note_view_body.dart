@@ -11,39 +11,81 @@ class AddNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 34,
-        right: 11,
-        left: 11,
-      ),
-      child: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.0),
-            child: AddNoteAppBar(),
+    return CustomScrollView(
+      slivers: [
+        const AddNoteAppBar(),
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 12.0),
+              //   child: AddNoteAppBar(),
+              // ),
+              const Padding(
+                padding: EdgeInsets.all(20),
+                child: CustomToolBar(),
+              ),
+              const ImagePlaceholder(),
+              const SizedBox(height: 17),
+              CustomTextFormField(
+                hintText: 'Title',
+                style: Styles.textStyle18.copyWith(
+                  fontFamily: kComfortaa,
+                ),
+              ),
+              const SizedBox(height: 6.3),
+              CustomTextFormField(
+                hintText: 'Notes...',
+                style: Styles.textStyle15.copyWith(
+                  fontWeight: FontWeight.w300,
+                ),
+                maxlines: 4,
+              ),
+              CustomTextFormField(
+                hintText: 'Notes...',
+                style: Styles.textStyle15.copyWith(
+                  fontWeight: FontWeight.w300,
+                ),
+                maxlines: 4,
+              ),
+              CustomTextFormField(
+                hintText: 'Notes...',
+                style: Styles.textStyle15.copyWith(
+                  fontWeight: FontWeight.w300,
+                ),
+                maxlines: 4,
+              ),
+              CustomTextFormField(
+                hintText: 'Notes...',
+                style: Styles.textStyle15.copyWith(
+                  fontWeight: FontWeight.w300,
+                ),
+                maxlines: 4,
+              ),
+              CustomTextFormField(
+                hintText: 'Notes...',
+                style: Styles.textStyle15.copyWith(
+                  fontWeight: FontWeight.w300,
+                ),
+                maxlines: 4,
+              ),
+              const SizedBox(height: 13.5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Last Changed : Mar 1, 2024 at 2.00AM',
+                    style: Styles.textStyle12.copyWith(
+                      color: Colors.white.withOpacity(0.6),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  )
+                ],
+              ),
+            ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(20),
-            child: CustomToolBar(),
-          ),
-          const ImagePlaceholder(),
-          const SizedBox(height: 17),
-          CustomTextFormField(
-            hintText: 'Title',
-            style: Styles.textStyle18.copyWith(
-              fontFamily: kComfortaa,
-            ),
-          ),
-          const SizedBox(height: 6.3),
-          CustomTextFormField(
-            hintText: 'Notes...',
-            style: Styles.textStyle15.copyWith(
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

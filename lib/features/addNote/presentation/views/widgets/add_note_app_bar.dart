@@ -14,10 +14,15 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(
+    return SliverPadding(
+      padding: const EdgeInsets.only(
+        right: 12,
+        left: 4,
+      ),
+      sliver: SliverAppBar(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        pinned: true,
+        leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -25,17 +30,19 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
             Icons.arrow_back_ios,
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            setState(() {
-              isLiked = !isLiked;
-            });
-          },
-          child: SvgPicture.asset(
-            isLiked ? AssetsData.filledHeartIcon : AssetsData.emptyHeartIcon,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isLiked = !isLiked;
+              });
+            },
+            child: SvgPicture.asset(
+              isLiked ? AssetsData.filledHeartIcon : AssetsData.emptyHeartIcon,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
