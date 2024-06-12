@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_color_palette.dart';
 
@@ -26,13 +28,12 @@ class NoteActionsBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 19),
-          const CustomColorsPalette(),
+          BlocProvider(
+            create: (context) => ColorCubit(),
+            child: const CustomColorsPalette(),
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
