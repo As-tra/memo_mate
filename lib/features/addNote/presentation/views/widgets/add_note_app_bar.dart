@@ -14,24 +14,21 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: const EdgeInsets.only(
-        right: 12,
-        left: 4,
-      ),
-      sliver: SliverAppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        pinned: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
+    return SliverAppBar(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      pinned: true,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: const Icon(
+          Icons.arrow_back_ios,
         ),
-        actions: [
-          GestureDetector(
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child: GestureDetector(
             onTap: () {
               setState(() {
                 isLiked = !isLiked;
@@ -41,8 +38,8 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
               isLiked ? AssetsData.filledHeartIcon : AssetsData.emptyHeartIcon,
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

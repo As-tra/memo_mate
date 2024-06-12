@@ -12,7 +12,7 @@ void main() async {
   setup();
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
-  var box = await Hive.openBox<NoteModel>(kNoteBox);
+  await Hive.openBox<NoteModel>(kNoteBox);
   // box.add(
   //   NoteModel(
   //       title: 'do you homework',
