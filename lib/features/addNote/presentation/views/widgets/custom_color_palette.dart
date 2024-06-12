@@ -10,12 +10,25 @@ class CustomColorsPalette extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ColorCubit(),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          for (int i = 0; i < BlocProvider.of<ColorCubit>(context).noteColors.length; i++)
-            ColorItem(color: BlocProvider.of<ColorCubit>(context).noteColors[i])
-        ],
+      child: BlocBuilder<ColorCubit, int>(
+        builder: (context, state) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              for (int i = 0;
+                  i < BlocProvider.of<ColorCubit>(context).noteColors.length;
+                  i++)
+                GestureDetector(
+                  onTap: () => BlocProvider.of<ColorCubit>(context)
+                      .selectColor(index: i),
+                  child: ColorItem(
+                    color: BlocProvider.of<ColorCubit>(context).noteColors[i],
+                    index: i,
+                  ),
+                )
+            ],
+          );
+        },
       ),
     );
   }

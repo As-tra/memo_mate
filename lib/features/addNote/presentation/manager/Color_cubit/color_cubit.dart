@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'color_state.dart';
 
-class ColorCubit extends Cubit<ColorState> {
+class ColorCubit extends Cubit<int> {
   List<Color> noteColors = const [
     Color(0xFFD0C9EB),
     Color(0xFFD9E8FC),
@@ -14,9 +13,9 @@ class ColorCubit extends Cubit<ColorState> {
     Color(0xFFFFEADD),
   ];
   int currentColor = -1;
-  ColorCubit() : super(ColorInitial());
+  ColorCubit() : super(0);
   void selectColor({required int index}) {
     currentColor = index;
-    emit(ColorSelected());
+    emit(currentColor);
   }
 }
