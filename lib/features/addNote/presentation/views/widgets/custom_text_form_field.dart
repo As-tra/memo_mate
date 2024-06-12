@@ -21,19 +21,17 @@ class CustomTextFormField extends StatelessWidget {
         filled: true,
         hintText: hintText,
         hintStyle: style,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(5),
-        ),
+        border: buildBorder(),
+        focusedBorder: buildBorder(),
+        enabledBorder: buildBorder(),
       ),
     );
+  }
+
+  OutlineInputBorder buildBorder() {
+    return OutlineInputBorder(
+        borderRadius: BorderRadius.circular(5),
+        borderSide: BorderSide.none,
+      );
   }
 }

@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
 
 class NoteActionsBar extends StatelessWidget {
   const NoteActionsBar({super.key});
@@ -28,7 +28,15 @@ class NoteActionsBar extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              context: context,
+              builder: (context) {
+                return const NoteActionsBottomSheet();
+              },
+            );
+          },
           icon: const Icon(
             Icons.more_vert,
             size: 30,
@@ -38,3 +46,4 @@ class NoteActionsBar extends StatelessWidget {
     );
   }
 }
+
