@@ -13,20 +13,6 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNoteBox);
-  // box.add(
-  //   NoteModel(
-  //       title: 'do you homework',
-  //       category: 'All',
-  //       tags: ['Top Priority', 'Important'],
-  //       code: 0,
-  //       dateOfCreation: DateTime.now(),
-  //       dateOfLastEdit: DateTime.now(),
-  //       deadline: DateTime.now(),
-  //       isFavorite: false,
-  //       isSecured: false,
-  //       content: 'all listeners are notified again with the old values.',
-  //       color: Colors.blue.value),
-  // );
   runApp(const MemoMate());
 }
 
