@@ -32,7 +32,7 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
   static const textStyle14 = TextStyle(
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: kInter,
     fontWeight: FontWeight.w400,
   );
