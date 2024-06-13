@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
@@ -17,7 +16,8 @@ class CustomExtraAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading:  Icon(
+      contentPadding: EdgeInsets.zero,
+      leading: Icon(
         icon,
         color: Colors.black,
       ),
@@ -40,7 +40,7 @@ class CustomExtraAction extends StatelessWidget {
           Icon(
             Icons.arrow_forward_ios,
             color: Theme.of(context).colorScheme.onPrimary,
-            size: 15,
+            size: 14,
           ),
         ],
       ),
