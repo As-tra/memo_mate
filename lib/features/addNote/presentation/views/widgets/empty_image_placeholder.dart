@@ -42,6 +42,7 @@ class EmptyImagePlaceholder extends StatelessWidget {
             ],
           ),
           CustomButton(
+            ontap: () {},
             text: 'Choose a file',
             textColor: Theme.of(context).colorScheme.primary,
             bgColor: Theme.of(context).colorScheme.onPrimary,

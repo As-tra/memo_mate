@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,9 +45,15 @@ class CustomAlertDialog extends StatelessWidget {
         CustomButton(
           bgColor: Theme.of(context).colorScheme.primary,
           textColor: Theme.of(context).colorScheme.onPrimary,
+          ontap: () {
+            Navigator.of(context).pop();
+          },
           text: 'Cancel',
         ),
         CustomButton(
+          ontap: () {
+            Navigator.popUntil(context, (route) => route.settings.name == "/");
+          },
           bgColor: Theme.of(context).colorScheme.onPrimary,
           textColor: Theme.of(context).colorScheme.secondary,
           text: 'Yes,Delete',
