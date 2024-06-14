@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
           iconColor: Colors.black,
           iconSize: 32,
           innerSize: 50,
-          pulseSize: 120,
+          pulseSize: 100,
           pulseCount: 2,
           pulseDuration: Duration(seconds: 4),
         ),

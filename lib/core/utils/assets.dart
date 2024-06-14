@@ -6,4 +6,5 @@ class AssetsData {
   static const emptyHeartIcon = 'assets/icons/empty_heart.svg';
   static const filledHeartIcon = 'assets/icons/filled_heart.svg';
   static const imagePlaceholder = 'assets/icons/image_placeholder.svg';
+  static const trashIocn = 'assets/icons/trash.svg';
 }

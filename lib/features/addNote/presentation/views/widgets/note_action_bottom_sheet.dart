@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_action_button.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_alert_dialog.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_color_palette.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_extras_action.dart';
@@ -67,7 +68,18 @@ class NoteActionsBottomSheet extends StatelessWidget {
               thickness: 1.13,
             ),
           ),
-          const CustomActionButton(),
+          CustomActionButton(
+            string: '  Delete Note',
+            icon: Icons.delete_outline,
+            onpressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return const CustomAlertDialog();
+                },
+              );
+            },
+          ),
         ],
       ),
     );

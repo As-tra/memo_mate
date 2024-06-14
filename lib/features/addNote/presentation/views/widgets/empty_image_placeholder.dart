@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:memo_mate/core/utils/assets.dart';
@@ -42,7 +41,11 @@ class EmptyImagePlaceholder extends StatelessWidget {
               ),
             ],
           ),
-          const CustomBotton(),
+          CustomButton(
+            text: 'Choose a file',
+            textColor: Theme.of(context).colorScheme.primary,
+            bgColor: Theme.of(context).colorScheme.onPrimary,
+          ),
         ],
       ),
     );
