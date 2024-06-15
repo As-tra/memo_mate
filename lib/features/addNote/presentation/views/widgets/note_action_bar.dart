@@ -8,42 +8,59 @@ class NoteActionsBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 22.0),
-          child: Text(
-            'Created: Mar 1, 2024',
-            style: Styles.textStyle12.copyWith(
-              color: Colors.white.withOpacity(0.6),
-              fontWeight: FontWeight.w300,
-            ),
-          ),
+        _buildActionButton(
+          icon: Icons.check_circle,
+          onpressed: () {},
+        ),
+        _buildActionButton(
+          icon: Icons.lock_open,
+          onpressed: () {},
+        ),
+        _buildActionButton(
+          icon: Icons.edit,
+          onpressed: () {},
+        ),
+        _buildActionButton(
+          icon: Icons.add_photo_alternate_outlined,
+          onpressed: () {},
         ),
         const Spacer(),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.lock,
-            size: 30,
+        Text(
+          'Created: Mar 1, 2024',
+          style: Styles.textStyle12.copyWith(
+            color: Colors.white.withOpacity(0.6),
+            fontWeight: FontWeight.w300,
           ),
         ),
-        IconButton(
-          onPressed: () {
-            showModalBottomSheet(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              context: context,
-              builder: (context) {
-                return const NoteActionsBottomSheet();
-              },
-            );
+        _buildActionButton(
+          icon: Icons.more_vert,
+          onpressed: () {
+            _showModalBottmoSheet(context);
           },
-          icon: const Icon(
-            Icons.more_vert,
-            size: 30,
-          ),
         ),
       ],
     );
   }
-}
 
+  Future<dynamic> _showModalBottmoSheet(BuildContext context) {
+    return showModalBottomSheet(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      context: context,
+      builder: (context) {
+        return const NoteActionsBottomSheet();
+      },
+    );
+  }
+
+  IconButton _buildActionButton({required icon, required onpressed}) {
+    return IconButton(
+      onPressed: onpressed,
+      icon: Icon(
+        icon,
+        size: 30,
+      ),
+    );
+  }
+}
