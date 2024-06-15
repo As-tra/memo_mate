@@ -7,14 +7,21 @@ class ImageCubit extends Cubit<ImageState> {
   ImageCubit() : super(ImageInitial());
 
   bool visible = false;
-  XFile? image;
+  String imagePath = '';
+
   final _picker = ImagePicker();
   Future<void> openImagePicker() async {
     final XFile? pickedImage =
         await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
-      image = XFile(pickedImage.path);
+      visible = true;
+      imagePath = pickedImage.path;
       emit(ImageSelected());
     }
+  }
+
+  Future<void> closeImage() async {
+    visible = false;
+    emit(ImageSelected());
   }
 }

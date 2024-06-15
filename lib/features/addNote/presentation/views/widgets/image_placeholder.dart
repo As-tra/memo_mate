@@ -23,30 +23,36 @@ class ImagePlaceholder extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.file(
-                    File(
-                        BlocProvider.of<ImageCubit>(context).image?.path ?? ''),
+                    File(BlocProvider.of<ImageCubit>(context).imagePath),
                     fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    bottom: 10,
-                    left: MediaQuery.of(context).size.width * .5 - 33,
-                    child: CircleAvatar(
-                      radius: 22,
-                      backgroundColor: Theme.of(context).colorScheme.secondary,
-                      child: IconButton(
-                        onPressed: () {
-                          BlocProvider.of<ImageCubit>(context).visible = false;
-                        },
-                        icon: const Icon(Icons.close),
-                      ),
-                    ),
-                  ),
+                  _createCloseIcon(context),
                 ],
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Positioned _createCloseIcon(BuildContext context) {
+    return Positioned(
+      top: 10,
+      right: 10,
+      child: CircleAvatar(
+        radius: 18,
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        child: IconButton(
+          onPressed: () {
+            BlocProvider.of<ImageCubit>(context).closeImage();
+          },
+          icon: const Icon(
+            Icons.close,
+            size: 18,
+          ),
+        ),
+      ),
     );
   }
 }
