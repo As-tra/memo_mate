@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
 
 class NoteActionsBar extends StatelessWidget {
@@ -24,7 +26,9 @@ class NoteActionsBar extends StatelessWidget {
         ),
         _buildActionButton(
           icon: Icons.add_photo_alternate_outlined,
-          onpressed: () {},
+          onpressed: () {
+            BlocProvider.of<ImageCubit>(context).openImagePicker();
+          },
         ),
         const Spacer(),
         Text(
