@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
@@ -14,7 +15,9 @@ class NoteActionsBar extends StatelessWidget {
       children: [
         _buildActionButton(
           icon: Icons.check_circle,
-          onpressed: () {},
+          onpressed: () {
+            
+          },
         ),
         _buildActionButton(
           icon: Icons.lock_open,
@@ -61,9 +64,13 @@ class NoteActionsBar extends StatelessWidget {
   IconButton _buildActionButton({required icon, required onpressed}) {
     return IconButton(
       onPressed: onpressed,
+      style: const ButtonStyle(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      constraints: const BoxConstraints(),
       icon: Icon(
         icon,
-        size: 30,
+        size: 26.sp,
       ),
     );
   }

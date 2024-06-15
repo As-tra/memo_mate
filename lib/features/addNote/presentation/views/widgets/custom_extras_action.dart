@@ -16,6 +16,7 @@ class CustomExtraAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      dense: true,
       contentPadding: EdgeInsets.zero,
       leading: Icon(
         icon,

@@ -36,6 +36,7 @@ class AddNoteViewBody extends StatelessWidget {
                       const ImagePlaceholder(),
                       const SizedBox(height: 17),
                       CustomTextFormField(
+                        maxlines: 1,
                         hintText: 'Title',
                         style: Styles.textStyle18.copyWith(
                           fontFamily: kComfortaa,
