@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
+import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 
 class NoteActionsBar extends StatelessWidget {
   const NoteActionsBar({super.key});
@@ -16,7 +18,23 @@ class NoteActionsBar extends StatelessWidget {
         _buildActionButton(
           icon: Icons.check_circle,
           onpressed: () {
-            
+            BlocProvider.of<AddNoteCubit>(context).addNote(
+              note: NoteModel(
+                title: 'title',
+                category: 'category',
+                tags: ['tags'],
+                code: 1111,
+                dateOfCreation: DateTime.now(),
+                dateOfLastEdit: DateTime.now(),
+                deadline: DateTime.now(),
+                isFavorite: true,
+                isSecured: true,
+                content:
+                    'content content content content content content content content',
+                color: Colors.red.value,
+              ),
+            );
+            Navigator.popUntil(context, (route) => route.settings.name == "/");
           },
         ),
         _buildActionButton(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 
@@ -52,7 +54,7 @@ class NoteCard extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              Image.asset('assets/icons/empty_heart.png'),
+              SvgPicture.asset(AssetsData.emptyHeartIcon),
             ],
           ),
         ],
