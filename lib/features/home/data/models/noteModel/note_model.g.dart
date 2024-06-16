@@ -28,13 +28,14 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       isSecured: fields[3] as bool,
       content: fields[9] as dynamic,
       color: fields[10] as int,
+      imagePath: fields[11] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, NoteModel obj) {
     writer
-      ..writeByte(11)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -56,7 +57,9 @@ class NoteModelAdapter extends TypeAdapter<NoteModel> {
       ..writeByte(9)
       ..write(obj.content)
       ..writeByte(10)
-      ..write(obj.color);
+      ..write(obj.color)
+      ..writeByte(11)
+      ..write(obj.imagePath);
   }
 
   @override

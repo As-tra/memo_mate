@@ -6,6 +6,7 @@ import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_not
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
+import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
 
 class NoteActionsBar extends StatelessWidget {
   const NoteActionsBar({super.key});
@@ -20,6 +21,7 @@ class NoteActionsBar extends StatelessWidget {
           onpressed: () {
             BlocProvider.of<AddNoteCubit>(context).addNote(
               note: NoteModel(
+                imagePath: '',
                 title: 'title',
                 category: 'category',
                 tags: ['tags'],
@@ -34,6 +36,7 @@ class NoteActionsBar extends StatelessWidget {
                 color: Colors.red.value,
               ),
             );
+            BlocProvider.of<NotesCubit>(context).getNotes();
             Navigator.popUntil(context, (route) => route.settings.name == "/");
           },
         ),

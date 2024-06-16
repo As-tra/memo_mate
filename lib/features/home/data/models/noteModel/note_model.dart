@@ -27,6 +27,8 @@ class NoteModel extends HiveObject {
   final dynamic content;
   @HiveField(10)
   final int color;
+  @HiveField(11)
+  final String imagePath;
 
   NoteModel({
     required this.title,
@@ -40,5 +42,6 @@ class NoteModel extends HiveObject {
     required this.isSecured,
     required this.content,
     required this.color,
+    required this.imagePath,
   });
 }
