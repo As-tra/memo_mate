@@ -52,6 +52,7 @@ class NoteActionsBottomSheet extends StatelessWidget {
             ),
             const SizedBox(height: 19),
             const CustomExtraAction(
+              
               icon: Icons.sell_outlined,
               actionText: 'Give Label',
               valueText: 'Not set ',
