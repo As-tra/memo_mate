@@ -5,6 +5,7 @@ import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_button.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_check_box.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({
@@ -33,13 +34,21 @@ class CustomAlertDialog extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      content: Text(
-        'Are you sure you want to delete this note ?',
-        textAlign: TextAlign.center,
-        style: Styles.textStyle16.copyWith(
-          color: Theme.of(context).colorScheme.onPrimary,
-          fontWeight: FontWeight.w300,
-        ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Are you sure you want to delete this note ?',
+            textAlign: TextAlign.center,
+            style: Styles.textStyle16.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(height: 20),
+          const CustomCheckBox(),
+          const SizedBox(height: 20),
+        ],
       ),
       actions: [
         CustomButton(
