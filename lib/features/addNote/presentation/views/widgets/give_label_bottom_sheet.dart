@@ -35,8 +35,8 @@ class GiveLabelBottomSheet extends StatelessWidget {
                 const Spacer(),
                 CustomCloseButton(
                   onpressed: () {
-                     Navigator.of(context).pop();
-                     customShowModalBottmoSheet(context);
+                    Navigator.of(context).pop();
+                    customShowModalBottmoSheet(context);
                   },
                 ),
               ],
