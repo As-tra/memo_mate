@@ -16,9 +16,10 @@ class NoteActionsBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 20.0,
-          horizontal: 18,
+        padding: const EdgeInsets.only(
+          top: 20.0,
+          left: 18,
+          right: 18,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,7 +27,6 @@ class NoteActionsBottomSheet extends StatelessWidget {
             CustomCloseButton(
               onpressed: () {
                 Navigator.of(context).pop();
-                
               },
             ),
             const SizedBox(height: 6),
@@ -61,6 +61,7 @@ class NoteActionsBottomSheet extends StatelessWidget {
               ontap: () {
                 Navigator.of(context).pop();
                 showModalBottomSheet(
+                  isScrollControlled: true,
                   context: context,
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   builder: (context) {
@@ -80,7 +81,7 @@ class NoteActionsBottomSheet extends StatelessWidget {
               valueText: 'Entertaiment ',
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18.0),
+              padding: const EdgeInsets.only(top: 18.0),
               child: Divider(
                 color: Theme.of(context).colorScheme.secondary,
                 thickness: 1.13,
@@ -98,6 +99,7 @@ class NoteActionsBottomSheet extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
