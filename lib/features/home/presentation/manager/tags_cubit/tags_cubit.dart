@@ -7,13 +7,13 @@ class TagsCubit extends Cubit<TagsState> {
 
   int current = 0;
   List<String> tags = [
-    'All',
-    'Important',
-    'Entertainment',
-    'To-do lists',
-    'Shopping list',
-    'Personal',
-    'Others'
+    '#All',
+    '#Important',
+    '#Entertainment',
+    '#To-do lists',
+    '#Shopping list',
+    '#Personal',
+    '#Others'
   ];
 
   void selectTagItem(int index) {

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bottom_sheet.dart';
+import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
 
@@ -65,22 +65,14 @@ class NoteActionsBar extends StatelessWidget {
         _buildActionButton(
           icon: Icons.more_vert,
           onpressed: () {
-            _showModalBottmoSheet(context);
+            customShowModalBottmoSheet(context);
           },
         ),
       ],
     );
   }
 
-  Future<dynamic> _showModalBottmoSheet(BuildContext context) {
-    return showModalBottomSheet(
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      context: context,
-      builder: (context) {
-        return const NoteActionsBottomSheet();
-      },
-    );
-  }
+
 
   IconButton _buildActionButton({required icon, required onpressed}) {
     return IconButton(

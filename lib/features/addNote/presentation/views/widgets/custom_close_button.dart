@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 class CustomCloseButton extends StatelessWidget {
+  final VoidCallback onpressed;
   const CustomCloseButton({
-    super.key,
+    super.key, required this.onpressed,
   });
 
   @override
@@ -18,9 +18,7 @@ class CustomCloseButton extends StatelessWidget {
             style: const ButtonStyle(
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
+            onPressed: onpressed,
             icon: Icon(
               size: 15,
               Icons.close,

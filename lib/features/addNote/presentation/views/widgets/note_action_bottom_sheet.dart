@@ -7,6 +7,7 @@ import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_ale
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_color_palette.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_extras_action.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/give_label_bottom_sheet.dart';
 
 class NoteActionsBottomSheet extends StatelessWidget {
   const NoteActionsBottomSheet({super.key});
@@ -22,7 +23,12 @@ class NoteActionsBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomCloseButton(),
+            CustomCloseButton(
+              onpressed: () {
+                Navigator.of(context).pop();
+                
+              },
+            ),
             const SizedBox(height: 6),
             Text(
               'NOTE COLOR',
@@ -51,14 +57,24 @@ class NoteActionsBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 19),
-            const CustomExtraAction(
-              
+            CustomExtraAction(
+              ontap: () {
+                Navigator.of(context).pop();
+                showModalBottomSheet(
+                  context: context,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  builder: (context) {
+                    return const GiveLabelBottomSheet();
+                  },
+                );
+              },
               icon: Icons.sell_outlined,
               actionText: 'Give Label',
               valueText: 'Not set ',
             ),
             const SizedBox(height: 8),
-            const CustomExtraAction(
+            CustomExtraAction(
+              ontap: () {},
               icon: Icons.edit_calendar_outlined,
               actionText: 'Change Note Type',
               valueText: 'Entertaiment ',
