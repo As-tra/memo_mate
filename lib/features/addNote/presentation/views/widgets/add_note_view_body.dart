@@ -22,7 +22,8 @@ class AddNoteViewBody extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AddNoteCubit(),
-        )
+        ),
+       
       ],
       child: Stack(
         children: [

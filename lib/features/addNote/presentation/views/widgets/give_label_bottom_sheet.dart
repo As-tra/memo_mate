@@ -3,7 +3,7 @@ import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_label_form.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_item.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
 
 class GiveLabelBottomSheet extends StatelessWidget {
   const GiveLabelBottomSheet({
@@ -26,10 +26,6 @@ class GiveLabelBottomSheet extends StatelessWidget {
           children: [
             Row(
               children: [
-                // CustomToolBarIcon(
-                //   icon: Icons.arrow_back_ios,
-                //   onpressed: () => Navigator.of(context).pop(),
-                // ),
                 Text(
                   'Extras',
                   style: Styles.textStyle22.copyWith(
@@ -48,24 +44,10 @@ class GiveLabelBottomSheet extends StatelessWidget {
             const SizedBox(height: 50),
             const AddLabelForm(),
             const SizedBox(height: 28),
-            
+            const CustomLabelsBuilder(),
           ],
         ),
       ),
-    );
-  }
-}
-
-
-class CustomLabelsBuilder extends StatelessWidget {
-  const CustomLabelsBuilder({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        
-      ],
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
 
 class AddLabelForm extends StatefulWidget {
   const AddLabelForm({super.key});
@@ -11,7 +13,6 @@ class AddLabelForm extends StatefulWidget {
 
 class _AddLabelFormState extends State<AddLabelForm> {
   final GlobalKey<FormState> formeKey = GlobalKey();
-  String? tag;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,9 @@ class _AddLabelFormState extends State<AddLabelForm> {
           const SizedBox(height: 6),
           TextFormField(
             onSaved: (newValue) {
-              tag = newValue;
+              if (formeKey.currentState!.validate()) {
+                BlocProvider.of<LabelCubit>(context).addLabel(label: newValue!);
+              }
             },
             validator: (value) {
               if (value?.isEmpty ?? true) {
