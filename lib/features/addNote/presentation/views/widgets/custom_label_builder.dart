@@ -4,7 +4,13 @@ import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/labe
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_item.dart';
 
 class CustomLabelsBuilder extends StatelessWidget {
-  const CustomLabelsBuilder({super.key});
+  final Color color;
+  final bool showCloseIcon;
+  const CustomLabelsBuilder({
+    super.key,
+    required this.color,
+    this.showCloseIcon = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,11 @@ class CustomLabelsBuilder extends StatelessWidget {
         return Wrap(
           children: [
             for (var lable in BlocProvider.of<LabelCubit>(context).labelsList)
-              CustomLabelItem(label: lable)
+              CustomLabelItem(
+                label: lable,
+                color: color,
+                showCloseIcon: showCloseIcon,
+              )
           ],
         );
       },

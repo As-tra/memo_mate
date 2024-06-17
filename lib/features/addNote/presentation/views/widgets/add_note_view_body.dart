@@ -5,6 +5,7 @@ import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/image_placeholder.dart';
@@ -23,7 +24,6 @@ class AddNoteViewBody extends StatelessWidget {
         BlocProvider(
           create: (context) => AddNoteCubit(),
         ),
-       
       ],
       child: Stack(
         children: [
@@ -71,6 +71,11 @@ class AddNoteViewBody extends StatelessWidget {
                             ),
                           )
                         ],
+                      ),
+                      const SizedBox(height: 17.5),
+                      const CustomLabelsBuilder(
+                        color: Colors.black,
+                        showCloseIcon: false,
                       ),
                       const SizedBox(height: 150),
                     ],

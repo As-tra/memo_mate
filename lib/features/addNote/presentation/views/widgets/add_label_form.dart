@@ -13,6 +13,7 @@ class AddLabelForm extends StatefulWidget {
 
 class _AddLabelFormState extends State<AddLabelForm> {
   final GlobalKey<FormState> formeKey = GlobalKey();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,11 @@ class _AddLabelFormState extends State<AddLabelForm> {
           ),
           const SizedBox(height: 6),
           TextFormField(
-            onSaved: (newValue) {
+            controller: _controller,
+            onFieldSubmitted: (value) {
               if (formeKey.currentState!.validate()) {
-                BlocProvider.of<LabelCubit>(context).addLabel(label: newValue!);
+                BlocProvider.of<LabelCubit>(context).addLabel(label: value);
+                _controller.clear();
               }
             },
             validator: (value) {

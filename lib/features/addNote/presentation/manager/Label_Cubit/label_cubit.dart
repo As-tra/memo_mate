@@ -11,4 +11,9 @@ class LabelCubit extends Cubit<LabelState> {
     labelsList.add(label);
     emit(LabelAdded());
   }
+
+  void removeLabel({required String label}) {
+    labelsList.remove(label);
+    emit(LabelRemoved());
+  }
 }

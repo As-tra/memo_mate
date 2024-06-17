@@ -44,7 +44,9 @@ class GiveLabelBottomSheet extends StatelessWidget {
             const SizedBox(height: 50),
             const AddLabelForm(),
             const SizedBox(height: 28),
-            const CustomLabelsBuilder(),
+            CustomLabelsBuilder(
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
           ],
         ),
       ),
