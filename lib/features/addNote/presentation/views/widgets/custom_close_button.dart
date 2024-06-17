@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class CustomCloseButton extends StatelessWidget {
   final VoidCallback onpressed;
+  final double radius;
   const CustomCloseButton({
-    super.key, required this.onpressed,
+    super.key,
+    required this.onpressed,
+    this.radius = 16,
   });
 
   @override
@@ -13,7 +16,7 @@ class CustomCloseButton extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
-          radius: 16,
+          radius: radius,
           child: IconButton(
             style: const ButtonStyle(
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
