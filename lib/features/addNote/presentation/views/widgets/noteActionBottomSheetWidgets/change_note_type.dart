@@ -48,3 +48,14 @@ class ChangeNoteType extends StatelessWidget {
   }
 }
 
+class NoteTypeListView extends StatelessWidget {
+  const NoteTypeListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+      return Placeholder();
+    });
+  }
+}

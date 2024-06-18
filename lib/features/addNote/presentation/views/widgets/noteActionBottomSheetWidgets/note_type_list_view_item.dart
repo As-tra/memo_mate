@@ -9,7 +9,10 @@ class NoteTypeListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      contentPadding: EdgeInsets.all(16),
+      contentPadding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
       tileColor: Color(0xFFF1CDDD),
       title: const Text(
         'Important',
