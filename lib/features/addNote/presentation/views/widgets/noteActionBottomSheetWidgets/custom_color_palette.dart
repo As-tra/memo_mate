@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/color_item.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/color_item.dart';
 
 class CustomColorsPalette extends StatelessWidget {
   const CustomColorsPalette({super.key});

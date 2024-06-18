@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/change_note_type.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/change_note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_action_button.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_alert_dialog.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_alert_dialog.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_color_palette.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_extras_action.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/give_label_bottom_sheet.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_color_palette.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_extras_action.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/give_label_bottom_sheet.dart';
 
 class NoteActionsBottomSheet extends StatelessWidget {
   const NoteActionsBottomSheet({super.key});

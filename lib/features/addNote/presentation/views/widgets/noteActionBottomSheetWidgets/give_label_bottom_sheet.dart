@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/add_label_form.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/add_label_form.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
 

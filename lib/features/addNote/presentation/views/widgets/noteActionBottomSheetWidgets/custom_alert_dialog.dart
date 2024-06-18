@@ -5,7 +5,7 @@ import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_button.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_check_box.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_check_box.dart';
 
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({
