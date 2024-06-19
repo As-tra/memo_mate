@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_close_button.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_type_list_view_item.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_type_list.dart';
 
 class ChangeNoteType extends StatelessWidget {
   const ChangeNoteType({super.key});
@@ -41,21 +41,9 @@ class ChangeNoteType extends StatelessWidget {
               thickness: 1.13,
             ),
           ),
-          NoteTypeListViewItem(),
+          const NoteTypeListView(),
         ],
       ),
     );
-  }
-}
-
-class NoteTypeListView extends StatelessWidget {
-  const NoteTypeListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-      return Placeholder();
-    });
   }
 }

@@ -8,7 +8,7 @@ const kNoteBox = 'NoteBox';
 const kAllCategories = 'All';
 const double kToolBarIconsSize = 24;
 
-List<Map<String, dynamic>> notesTypes = [
+List<Map<String, dynamic>> knotesTypes = [
   {
     'title': 'Important',
     'descreption': 'Use free text area ,feel free to write it all.',

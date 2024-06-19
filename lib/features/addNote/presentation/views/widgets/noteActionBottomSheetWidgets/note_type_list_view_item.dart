@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
+import 'package:memo_mate/features/addNote/data/note_type.dart';
 
 class NoteTypeListViewItem extends StatelessWidget {
-  const NoteTypeListViewItem({super.key});
+  final NoteType type;
+  const NoteTypeListViewItem({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -13,27 +15,27 @@ class NoteTypeListViewItem extends StatelessWidget {
         horizontal: 16,
         vertical: 8,
       ),
-      tileColor: Color(0xFFF1CDDD),
-      title: const Text(
-        'Important',
+      tileColor: type.bgColor,
+      title:  Text(
+        type.title,
         style: Styles.textStyle16,
       ),
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: Text(
-          'Use free text area ,feel free to write it all.',
+          type.description,
           style: Styles.textStyle12.copyWith(
             fontFamily: kInter,
-            color: Color(0xFFFB7EB6),
+            color: type.textColor,
             fontWeight: FontWeight.w400,
           ),
         ),
       ),
-      leading: const CircleAvatar(
+      leading:  CircleAvatar(
         radius: 23,
-        backgroundColor: Color(0xFFFB7EB6),
+        backgroundColor: type.textColor,
         child: Icon(
-          Icons.lightbulb_outline,
+          type.icon,
           color: Colors.white,
           size: 20,
         ),
