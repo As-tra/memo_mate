@@ -45,7 +45,7 @@ class NoteActionsBar extends StatelessWidget {
           onpressed: () {},
         ),
         _buildActionButton(
-          icon: Icons.edit,
+          icon: Icons.draw_outlined,
           onpressed: () {},
         ),
         _buildActionButton(
@@ -71,8 +71,6 @@ class NoteActionsBar extends StatelessWidget {
       ],
     );
   }
-
-
 
   IconButton _buildActionButton({required icon, required onpressed}) {
     return IconButton(

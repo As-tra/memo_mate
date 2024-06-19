@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/data/note_type.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/cusotm_snack_bar.dart';
 
 class NoteTypeListViewItem extends StatelessWidget {
   final NoteType type;
@@ -10,13 +11,25 @@ class NoteTypeListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            behavior: SnackBarBehavior.floating,
+            content: const CustomSnackBar(),
+          ),
+        );
+      },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 8,
       ),
       tileColor: type.bgColor,
-      title:  Text(
+      title: Text(
         type.title,
         style: Styles.textStyle16,
       ),
@@ -31,7 +44,7 @@ class NoteTypeListViewItem extends StatelessWidget {
           ),
         ),
       ),
-      leading:  CircleAvatar(
+      leading: CircleAvatar(
         radius: 23,
         backgroundColor: type.textColor,
         child: Icon(
@@ -43,3 +56,5 @@ class NoteTypeListViewItem extends StatelessWidget {
     );
   }
 }
+
+

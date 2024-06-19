@@ -6,6 +6,7 @@ const kComfortaa = 'Comfortaa';
 const kDancingScript = 'DancingScript';
 const kNoteBox = 'NoteBox';
 const kAllCategories = 'All';
+const kSnackBarColor = Color(0xFF60D889);
 const double kToolBarIconsSize = 24;
 
 List<Map<String, dynamic>> knotesTypes = [
