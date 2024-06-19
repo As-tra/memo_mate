@@ -19,8 +19,19 @@ class ChangeNoteType extends StatelessWidget {
         children: [
           Row(
             children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  customShowModalBottmoSheet(context);
+                },
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  size: 20,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
               Text(
-                'Notes Types',
+                'Extras',
                 style: Styles.textStyle22.copyWith(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
@@ -29,7 +40,6 @@ class ChangeNoteType extends StatelessWidget {
               CustomCloseButton(
                 onpressed: () {
                   Navigator.of(context).pop();
-                  customShowModalBottmoSheet(context);
                 },
               ),
             ],

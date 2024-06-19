@@ -26,6 +26,17 @@ class GiveLabelBottomSheet extends StatelessWidget {
           children: [
             Row(
               children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    customShowModalBottmoSheet(context);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    size: 20,
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
                 Text(
                   'Extras',
                   style: Styles.textStyle22.copyWith(
@@ -36,7 +47,6 @@ class GiveLabelBottomSheet extends StatelessWidget {
                 CustomCloseButton(
                   onpressed: () {
                     Navigator.of(context).pop();
-                    customShowModalBottmoSheet(context);
                   },
                 ),
               ],
