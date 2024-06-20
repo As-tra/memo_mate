@@ -99,7 +99,7 @@ class NoteActionsBottomSheet extends StatelessWidget {
               ),
             ),
             CustomActionButton(
-              string: '  Delete Note',
+              string: 'Delete Note',
               icon: Icons.delete_outline,
               onpressed: () {
                 showDialog(

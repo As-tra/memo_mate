@@ -23,10 +23,12 @@ class CustomActionButton extends StatelessWidget {
             size: 27,
             color: Theme.of(context).colorScheme.tertiary,
           ),
+          const SizedBox(width: 13),
           Text(
             string,
             style: Styles.textStyle18.copyWith(
               color: Theme.of(context).colorScheme.tertiary,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ],
