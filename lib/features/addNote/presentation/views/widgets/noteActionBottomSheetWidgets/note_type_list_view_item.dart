@@ -19,7 +19,9 @@ class NoteTypeListViewItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             behavior: SnackBarBehavior.floating,
-            content: const CustomSnackBar(),
+            content: CustomSnackBar(
+              type: type.title,
+            ),
           ),
         );
       },
@@ -56,5 +58,3 @@ class NoteTypeListViewItem extends StatelessWidget {
     );
   }
 }
-
-

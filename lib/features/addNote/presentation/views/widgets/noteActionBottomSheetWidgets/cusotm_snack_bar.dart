@@ -3,7 +3,8 @@ import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 
 class CustomSnackBar extends StatelessWidget {
-  const CustomSnackBar({super.key});
+  final String type;
+  const CustomSnackBar({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,28 @@ class CustomSnackBar extends StatelessWidget {
           size: 14,
         ),
       ),
-      title: Text(
-        'Undo Success! This note still displayed on the “ Entertainment “.',
-        style: Styles.textStyle14.copyWith(
-          color: kSnackBarColor,
+      title: RichText(
+        text: TextSpan(
+          text: 'Saved Successfully!',
+          style: Styles.textStyle14.copyWith(
+            color: const Color(0xFF1F7F40),
+            fontWeight: FontWeight.w600,
+          ),
+          children: [
+            TextSpan(
+              text: ' This note will be displayed on the ',
+              style: Styles.textStyle14.copyWith(
+                color: kSnackBarColor,
+              ),
+            ),
+            TextSpan(
+              text: '“ $type “.',
+              style: Styles.textStyle14.copyWith(
+                color: const Color(0xFF1F7F40),
+                fontWeight: FontWeight.w600,
+              ),
+            )
+          ],
         ),
       ),
     );
