@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar_Icon.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar_icon.dart';
 
 class CustomToolBar extends StatelessWidget {
   const CustomToolBar({super.key});

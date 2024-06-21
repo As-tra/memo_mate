@@ -41,7 +41,7 @@ class NoteActionsBar extends StatelessWidget {
           },
         ),
         _buildActionButton(
-          icon: Icons.lock_open,
+          icon: Icons.mic,
           onpressed: () {},
         ),
         _buildActionButton(

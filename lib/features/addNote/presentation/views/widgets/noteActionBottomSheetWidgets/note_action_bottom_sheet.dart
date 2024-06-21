@@ -91,8 +91,15 @@ class NoteActionsBottomSheet extends StatelessWidget {
               actionText: 'Change Note Type',
               valueText: 'Entertaiment ',
             ),
+            const SizedBox(height: 8),
+            CustomExtraAction(
+              ontap: () {},
+              icon: Icons.lock_open,
+              actionText: 'Lock The Note',
+              valueText: 'Open ',
+            ),
             Padding(
-              padding: const EdgeInsets.only(top: 18.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Divider(
                 color: Theme.of(context).colorScheme.secondary,
                 thickness: 1.13,
