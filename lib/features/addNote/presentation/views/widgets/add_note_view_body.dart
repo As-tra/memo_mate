@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Tools_cubit/tools_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
@@ -23,6 +24,9 @@ class AddNoteViewBody extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AddNoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ToolsCubit(),
         ),
       ],
       child: Stack(
@@ -49,6 +53,8 @@ class AddNoteViewBody extends StatelessWidget {
                         hintText: 'Title',
                         style: Styles.textStyle18.copyWith(
                           fontFamily: kComfortaa,
+                          fontWeight: FontWeight.normal,
+                          fontStyle: FontStyle.italic,
                         ),
                       ),
                       const SizedBox(height: 6.3),

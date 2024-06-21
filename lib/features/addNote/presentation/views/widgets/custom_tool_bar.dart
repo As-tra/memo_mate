@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Tools_cubit/tools_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar_icon.dart';
 
 class CustomToolBar extends StatelessWidget {
@@ -12,42 +14,28 @@ class CustomToolBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         color: Theme.of(context).colorScheme.primary,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_bold,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_italic,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_underline,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.title,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_align_justify,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_align_left,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_align_center,
-          ),
-          CustomToolBarIcon(
-            onpressed: () {},
-            icon: Icons.format_align_right,
-          ),
-        ],
+      child: BlocBuilder<ToolsCubit, ToolsState>(
+        builder: (context, state) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              for (int i = 0;
+                  i < BlocProvider.of<ToolsCubit>(context).icons.length;
+                  i++)
+                GestureDetector(
+                  onTap: () =>
+                      BlocProvider.of<ToolsCubit>(context).selectTool(index: i),
+                  child: CustomToolBarIcon(
+                    icon: BlocProvider.of<ToolsCubit>(context).icons[i],
+                    iconColor:
+                        BlocProvider.of<ToolsCubit>(context).selectedTool == i
+                            ? Colors.black
+                            : Theme.of(context).colorScheme.onPrimary,
+                  ),
+                )
+            ],
+          );
+        },
       ),
     );
   }

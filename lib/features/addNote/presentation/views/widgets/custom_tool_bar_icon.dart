@@ -4,7 +4,7 @@ import 'package:memo_mate/core/constants.dart';
 class CustomToolBarIcon extends StatelessWidget {
   final IconData? icon;
   final void Function()? onpressed;
-  final Color iconColor;
+  final Color? iconColor;
   const CustomToolBarIcon({
     super.key,
     required this.icon,
