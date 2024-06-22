@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/views/logic/get_current_date.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
@@ -56,7 +57,7 @@ class NoteActionsBar extends StatelessWidget {
         ),
         const Spacer(),
         Text(
-          'Created: Mar 1, 2024',
+          getCurrentDate(),
           style: Styles.textStyle12.copyWith(
             color: Colors.white.withOpacity(0.6),
             fontWeight: FontWeight.w300,
