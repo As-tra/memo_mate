@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/change_note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_action_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_alert_dialog.dart';
@@ -75,21 +76,25 @@ class NoteActionsBottomSheet extends StatelessWidget {
               valueText: 'Not set ',
             ),
             const SizedBox(height: 8),
-            CustomExtraAction(
-              ontap: () {
-                Navigator.of(context).pop();
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  context: context,
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                  builder: (context) {
-                    return const ChangeNoteType();
+            BlocBuilder<NoteTypeCubit, String>(
+              builder: (context, state) {
+                return CustomExtraAction(
+                  ontap: () {
+                    Navigator.of(context).pop();
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      builder: (context) {
+                        return const ChangeNoteType();
+                      },
+                    );
                   },
+                  icon: Icons.edit_calendar_outlined,
+                  actionText: 'Change Note Type',
+                  valueText: state,
                 );
               },
-              icon: Icons.edit_calendar_outlined,
-              actionText: 'Change Note Type',
-              valueText: 'Entertaiment ',
             ),
             const SizedBox(height: 8),
             CustomExtraAction(

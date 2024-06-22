@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/data/note_type.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/cusotm_snack_bar.dart';
 
 class NoteTypeListViewItem extends StatelessWidget {
@@ -13,6 +15,8 @@ class NoteTypeListViewItem extends StatelessWidget {
     return ListTile(
       onTap: () {
         Navigator.of(context).pop();
+        BlocProvider.of<NoteTypeCubit>(context)
+            .changeNoteType(noteType: type.title);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             shape: RoundedRectangleBorder(
