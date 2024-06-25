@@ -86,7 +86,9 @@ class NoteActionsBottomSheet extends StatelessWidget {
                       context: context,
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       builder: (context) {
-                        return const ChangeNoteType();
+                        return ChangeNoteType(
+                          type: state,
+                        );
                       },
                     );
                   },

@@ -5,7 +5,8 @@ import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_clo
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_type_list.dart';
 
 class ChangeNoteType extends StatelessWidget {
-  const ChangeNoteType({super.key});
+  final String type;
+  const ChangeNoteType({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class ChangeNoteType extends StatelessWidget {
               thickness: 1.13,
             ),
           ),
-          const NoteTypeListView(),
+          NoteTypeListView(type: type,),
         ],
       ),
     );

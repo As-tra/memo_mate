@@ -8,7 +8,9 @@ import 'package:memo_mate/features/addNote/presentation/views/widgets/noteAction
 
 class NoteTypeListViewItem extends StatelessWidget {
   final NoteType type;
-  const NoteTypeListViewItem({super.key, required this.type});
+  final String currentType;
+  const NoteTypeListViewItem(
+      {super.key, required this.type, required this.currentType});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,15 @@ class NoteTypeListViewItem extends StatelessWidget {
           ),
         );
       },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: currentType == type.title
+            ? BorderSide(
+                color: type.textColor,
+                width: 1.5,
+              )
+            : BorderSide.none,
+      ),
       contentPadding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 8,

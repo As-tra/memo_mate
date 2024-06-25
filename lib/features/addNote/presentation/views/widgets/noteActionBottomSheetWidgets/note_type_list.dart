@@ -4,7 +4,8 @@ import 'package:memo_mate/features/addNote/data/note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_type_list_view_item.dart';
 
 class NoteTypeListView extends StatelessWidget {
-  const NoteTypeListView({super.key});
+  final String type;
+  const NoteTypeListView({super.key, required this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,10 @@ class NoteTypeListView extends StatelessWidget {
       child: ListView.builder(
         itemCount: knotesTypes.length,
         itemBuilder: (context, index) {
-          return  Padding(
+          return Padding(
             padding: const EdgeInsets.all(6.0),
             child: NoteTypeListViewItem(
+              currentType: type,
               type: NoteType.fromJson(knotesTypes[index]),
             ),
           );
