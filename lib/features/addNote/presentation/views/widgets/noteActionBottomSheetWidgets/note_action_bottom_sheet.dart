@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
@@ -103,9 +104,25 @@ class NoteActionsBottomSheet extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             CustomExtraAction(
-              ontap: () {},
+              ontap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CustomAlertDialog(
+                      title: 'Set Password',
+                      bgColor: const Color(0xFF3B484A).withOpacity(0.07),
+                      content:
+                          'Before access private folder you need to det private folder password. This helps you to access private Note, Image,Voice etc..',
+                      confirmText: 'Pass code',
+                      showCheckBox: false,
+                      fn: () {},
+                      icon: AssetsData.lockIcon,
+                    );
+                  },
+                );
+              },
               icon: Icons.lock_open,
-              actionText: 'Lock The Note',
+              actionText: 'Private Note',
               valueText: 'Open ',
             ),
             Padding(
@@ -122,7 +139,18 @@ class NoteActionsBottomSheet extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    return const CustomAlertDialog();
+                    return CustomAlertDialog(
+                      title: 'Delete Note',
+                      bgColor: const Color(0xFFF9BEC8),
+                      content: 'Are you sure you want to delete this note ?',
+                      confirmText: 'Yes,Delete',
+                      showCheckBox: true,
+                      fn: () {
+                        Navigator.popUntil(
+                            context, (route) => route.settings.name == "/");
+                      },
+                      icon: AssetsData.trashIocn,
+                    );
                   },
                 );
               },

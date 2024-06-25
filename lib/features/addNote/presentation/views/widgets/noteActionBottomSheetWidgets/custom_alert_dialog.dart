@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:memo_mate/core/constants.dart';
-import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_check_box.dart';
 
 class CustomAlertDialog extends StatelessWidget {
+  final String title;
+  final Color bgColor;
+  final String content;
+  final String confirmText;
+  final bool showCheckBox;
+  final VoidCallback fn;
+  final String icon;
   const CustomAlertDialog({
     super.key,
+    required this.title,
+    required this.bgColor,
+    required this.content,
+    required this.confirmText,
+    required this.showCheckBox,
+    required this.fn,
+    required this.icon,
   });
 
   @override
@@ -22,12 +36,12 @@ class CustomAlertDialog extends StatelessWidget {
       ),
       actionsAlignment: MainAxisAlignment.spaceAround,
       icon: CircleAvatar(
-        backgroundColor: const Color(0xFFF9BEC8),
+        backgroundColor: bgColor,
         radius: 28.r,
-        child: SvgPicture.asset(AssetsData.trashIocn),
+        child: SvgPicture.asset(icon),
       ),
       title: Text(
-        'Delete Note',
+        title,
         style: Styles.textStyle20.copyWith(
           fontFamily: kInter,
           fontWeight: FontWeight.w700,
@@ -38,7 +52,7 @@ class CustomAlertDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Are you sure you want to delete this note ?',
+            content,
             textAlign: TextAlign.center,
             style: Styles.textStyle16.copyWith(
               color: Theme.of(context).colorScheme.onPrimary,
@@ -46,8 +60,13 @@ class CustomAlertDialog extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const CustomCheckBox(),
-          const SizedBox(height: 20),
+          Visibility(
+            visible: showCheckBox,
+            child: const Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
+              child: CustomCheckBox(),
+            ),
+          ),
         ],
       ),
       actions: [
@@ -60,12 +79,10 @@ class CustomAlertDialog extends StatelessWidget {
           text: 'Cancel',
         ),
         CustomButton(
-          ontap: () {
-            Navigator.popUntil(context, (route) => route.settings.name == "/");
-          },
+          ontap: fn,
           bgColor: Theme.of(context).colorScheme.onPrimary,
           textColor: Theme.of(context).colorScheme.secondary,
-          text: 'Yes,Delete',
+          text: confirmText,
         )
       ],
     );
