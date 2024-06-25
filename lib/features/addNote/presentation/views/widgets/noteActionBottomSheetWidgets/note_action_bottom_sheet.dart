@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/change_note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_action_button.dart';
@@ -73,7 +74,9 @@ class NoteActionsBottomSheet extends StatelessWidget {
               },
               icon: Icons.sell_outlined,
               actionText: 'Give Label',
-              valueText: 'Not set ',
+              valueText: BlocProvider.of<LabelCubit>(context).labelsList.isEmpty
+                  ? 'Not set '
+                  : BlocProvider.of<LabelCubit>(context).labelsList[0],
             ),
             const SizedBox(height: 8),
             BlocBuilder<NoteTypeCubit, String>(
