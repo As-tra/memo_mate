@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memo_mate/core/utils/app_router.dart';
 import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
@@ -115,7 +117,9 @@ class NoteActionsBottomSheet extends StatelessWidget {
                           'Before access private folder you need to det private folder password. This helps you to access private Note, Image,Voice etc..',
                       confirmText: 'Pass code',
                       showCheckBox: false,
-                      fn: () {},
+                      fn: () {
+                        GoRouter.of(context).push(AppRouter.kLockView);
+                      },
                       icon: AssetsData.lockIcon,
                     );
                   },

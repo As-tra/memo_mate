@@ -38,7 +38,10 @@ class CustomAlertDialog extends StatelessWidget {
       icon: CircleAvatar(
         backgroundColor: bgColor,
         radius: 28.r,
-        child: SvgPicture.asset(icon),
+        child: SvgPicture.asset(
+          icon,
+          height: 40,
+        ),
       ),
       title: Text(
         title,
