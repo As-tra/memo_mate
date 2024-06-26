@@ -8,4 +8,5 @@ class AssetsData {
   static const imagePlaceholder = 'assets/icons/image_placeholder.svg';
   static const trashIocn = 'assets/icons/trash.svg';
   static const lockIcon = 'assets/icons/unlocked.svg';
+  static const closeIcon = 'assets/icons/x.svg';
 }
