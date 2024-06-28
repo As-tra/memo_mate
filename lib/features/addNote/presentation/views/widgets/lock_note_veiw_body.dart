@@ -28,6 +28,7 @@ class LockNoteViewBody extends StatelessWidget {
 
   PinCodeTextField _createPinCodeFields(BuildContext context) {
     return PinCodeTextField(
+      autoFocus: true,
       appContext: context,
       length: 4,
       animationType: AnimationType.fade,
@@ -43,7 +44,7 @@ class LockNoteViewBody extends StatelessWidget {
       ),
       animationDuration: const Duration(milliseconds: 300),
       onCompleted: (value) {
-        GoRouter.of(context).push(AppRouter.kConfirmLockView);
+        GoRouter.of(context).push(AppRouter.kConfirmLockView, extra: value);
       },
       onChanged: (value) {},
       beforeTextPaste: (text) {

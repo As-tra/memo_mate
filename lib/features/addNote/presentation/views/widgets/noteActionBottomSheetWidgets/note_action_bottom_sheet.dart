@@ -6,6 +6,7 @@ import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Lock_cubit/lock_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/change_note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_action_button.dart';
@@ -105,29 +106,37 @@ class NoteActionsBottomSheet extends StatelessWidget {
               },
             ),
             const SizedBox(height: 8),
-            CustomExtraAction(
-              ontap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return CustomAlertDialog(
-                      title: 'Set Password',
-                      bgColor: const Color(0xFF3B484A).withOpacity(0.07),
-                      content:
-                          'Before access private folder you need to det private folder password. This helps you to access private Note, Image,Voice etc..',
-                      confirmText: 'Pass code',
-                      showCheckBox: false,
-                      fn: () {
-                        GoRouter.of(context).push(AppRouter.kLockView);
+            BlocBuilder<LockNoteCubit, String>(
+              builder: (context, state) {
+                return CustomExtraAction(
+                  ontap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return CustomAlertDialog(
+                          title: 'Set Password',
+                          bgColor: const Color(0xFF3B484A).withOpacity(0.07),
+                          content:
+                              'Before access private folder you need to det private folder password. This helps you to access private Note, Image,Voice etc..',
+                          confirmText: 'Pass code',
+                          showCheckBox: false,
+                          fn: () {
+                            GoRouter.of(context).push(AppRouter.kLockView);
+                          },
+                          icon: AssetsData.lockIcon,
+                        );
                       },
-                      icon: AssetsData.lockIcon,
                     );
                   },
+                  icon: BlocProvider.of<LockNoteCubit>(context).locked
+                      ? Icons.lock
+                      : Icons.lock_open,
+                  actionText: 'Private Note',
+                  valueText: BlocProvider.of<LockNoteCubit>(context).locked
+                      ? 'Locked '
+                      : 'Open ',
                 );
               },
-              icon: Icons.lock_open,
-              actionText: 'Private Note',
-              valueText: 'Open ',
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
