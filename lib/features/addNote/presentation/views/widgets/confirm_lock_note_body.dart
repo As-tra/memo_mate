@@ -1,12 +1,11 @@
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:memo_mate/core/constants.dart';
-import 'package:memo_mate/core/utils/app_router.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class LockNoteViewBody extends StatelessWidget {
-  const LockNoteViewBody({super.key});
+class ConfirmNoteLockViewBody extends StatelessWidget {
+  const ConfirmNoteLockViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class LockNoteViewBody extends StatelessWidget {
       children: [
         const SizedBox(height: 33),
         const Text(
-          'Enter Your PIN',
+          'Confirm Your PIN',
           style: Styles.textStyle22,
         ),
         const SizedBox(height: 42),
@@ -43,7 +42,7 @@ class LockNoteViewBody extends StatelessWidget {
       ),
       animationDuration: const Duration(milliseconds: 300),
       onCompleted: (value) {
-        GoRouter.of(context).push(AppRouter.kConfirmLockView);
+        print(value);
       },
       onChanged: (value) {},
       beforeTextPaste: (text) {

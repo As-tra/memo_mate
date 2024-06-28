@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:memo_mate/core/utils/assets.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/lock_note_veiw_body.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/confirm_lock_note_body.dart';
 
-class LockNoteView extends StatelessWidget {
-  const LockNoteView({super.key});
+class ConfirmNoteLockView extends StatelessWidget {
+  const ConfirmNoteLockView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar:  AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.background,
         actions: [
@@ -21,7 +21,7 @@ class LockNoteView extends StatelessWidget {
           ),
         ],
       ),
-      body: const LockNoteViewBody(),
+      body: const ConfirmNoteLockViewBody(),
     );
   }
 }
