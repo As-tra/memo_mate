@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_action_bottom_sheet.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/text_style_bottom_sheet.dart';
 
 Future<dynamic> customShowModalBottmoSheet(BuildContext context) {
   return showModalBottomSheet(
@@ -7,7 +7,7 @@ Future<dynamic> customShowModalBottmoSheet(BuildContext context) {
     backgroundColor: Theme.of(context).colorScheme.primary,
     context: context,
     builder: (context) {
-      return const NoteActionsBottomSheet();
+      return const TextSyleBottomSheet();
     },
   );
 }
