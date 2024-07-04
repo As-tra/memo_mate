@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
@@ -12,8 +13,15 @@ import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_too
 import 'package:memo_mate/features/addNote/presentation/views/widgets/image_placeholder.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bar.dart';
 
-class AddNoteViewBody extends StatelessWidget {
+class AddNoteViewBody extends StatefulWidget {
   const AddNoteViewBody({super.key});
+
+  @override
+  State<AddNoteViewBody> createState() => _AddNoteViewBodyState();
+}
+
+class _AddNoteViewBodyState extends State<AddNoteViewBody> {
+  final QuillController _controller = QuillController.basic();
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +33,6 @@ class AddNoteViewBody extends StatelessWidget {
         BlocProvider(
           create: (context) => AddNoteCubit(),
         ),
-        BlocProvider(
-          create: (context) => ToolsCubit(),
-        ),
-        
       ],
       child: Stack(
         children: [
@@ -50,6 +54,8 @@ class AddNoteViewBody extends StatelessWidget {
                       const ImagePlaceholder(),
                       const SizedBox(height: 17),
                       CustomTextFormField(
+                        controller: BlocProvider.of<ToolsCubit>(context)
+                            .titleController,
                         maxlines: 1,
                         hintText: 'Title',
                         style: Styles.textStyle18.copyWith(
@@ -59,7 +65,22 @@ class AddNoteViewBody extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 6.3),
+                      QuillEditor.basic(
+                        configurations: QuillEditorConfigurations(
+                          placeholder: 'Notes...',
+                          controller: _controller,
+                          customStyles: DefaultStyles(
+                            placeHolder: DefaultListBlockStyle(
+                              Styles.textStyle15.copyWith(
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       CustomTextFormField(
+                        controller: BlocProvider.of<ToolsCubit>(context)
+                            .titleController,
                         hintText: 'Notes...',
                         style: Styles.textStyle15.copyWith(
                           fontWeight: FontWeight.w300,

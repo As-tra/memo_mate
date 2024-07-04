@@ -23,8 +23,9 @@ class CustomToolBar extends StatelessWidget {
                   i < BlocProvider.of<ToolsCubit>(context).icons.length;
                   i++)
                 GestureDetector(
-                  onTap: () =>
-                      BlocProvider.of<ToolsCubit>(context).selectTool(index: i),
+                  onTap: () {
+                    BlocProvider.of<ToolsCubit>(context).selectTool(index: i);
+                  },
                   child: CustomToolBarIcon(
                     icon: BlocProvider.of<ToolsCubit>(context).icons[i],
                     iconColor:

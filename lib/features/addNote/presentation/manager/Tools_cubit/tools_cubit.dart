@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'tools_state.dart';
 
 class ToolsCubit extends Cubit<ToolsState> {
   ToolsCubit() : super(ToolsInitial());
+
+  TextEditingController titleController = TextEditingController();
 
   int selectedTool = -1;
   List<IconData> icons = [
@@ -26,4 +29,6 @@ class ToolsCubit extends Cubit<ToolsState> {
     }
     emit(ToolsSelected());
   }
+
+ 
 }
