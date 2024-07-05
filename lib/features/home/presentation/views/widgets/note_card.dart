@@ -54,7 +54,11 @@ class NoteCard extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              SvgPicture.asset(AssetsData.emptyHeartIcon),
+              SvgPicture.asset(
+                note.isFavorite
+                    ? AssetsData.filledBlackHeartIcon
+                    : AssetsData.emptyBlackHeartIcon,
+              ),
             ],
           ),
         ],
