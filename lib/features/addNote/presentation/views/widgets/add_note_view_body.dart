@@ -8,6 +8,7 @@ import 'package:memo_mate/features/addNote/presentation/manager/Tools_cubit/tool
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_quill_editor.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/image_placeholder.dart';
@@ -65,28 +66,7 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
                         ),
                       ),
                       const SizedBox(height: 6.3),
-                      QuillEditor.basic(
-                        configurations: QuillEditorConfigurations(
-                          placeholder: 'Notes...',
-                          controller: _controller,
-                          customStyles: DefaultStyles(
-                            placeHolder: DefaultListBlockStyle(
-                              Styles.textStyle15.copyWith(
-                                fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      CustomTextFormField(
-                        controller: BlocProvider.of<ToolsCubit>(context)
-                            .titleController,
-                        hintText: 'Notes...',
-                        style: Styles.textStyle15.copyWith(
-                          fontWeight: FontWeight.w300,
-                        ),
-                        maxlines: null,
-                      ),
+                      CustomQuillEditor(controller: _controller),
                       const SizedBox(height: 13.5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,

@@ -28,6 +28,7 @@ class CustomTextFormField extends StatelessWidget {
         focusedBorder: buildBorder(),
         enabledBorder: buildBorder(),
       ),
+      
     );
   }
 
