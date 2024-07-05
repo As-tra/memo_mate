@@ -4,9 +4,11 @@ class LockNoteCubit extends Cubit<String> {
   LockNoteCubit() : super('');
 
   bool locked = false;
+  int? code;
 
-  void addLock({required String code}) {
+  void addLock({required String newValue}) {
     locked = true;
-    emit(code);
+    code = int.parse(newValue);
+    emit(newValue);
   }
 }

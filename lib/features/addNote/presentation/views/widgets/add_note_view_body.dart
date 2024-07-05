@@ -4,7 +4,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:memo_mate/core/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
-import 'package:memo_mate/features/addNote/presentation/manager/Tools_cubit/tools_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Favorite_cubit.dart/favorite_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
@@ -23,6 +23,7 @@ class AddNoteViewBody extends StatefulWidget {
 
 class _AddNoteViewBodyState extends State<AddNoteViewBody> {
   final QuillController _controller = QuillController.basic();
+  final TextEditingController _titleController = TextEditingController();
 
   @override
   void dispose() {
@@ -40,6 +41,9 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
         BlocProvider(
           create: (context) => AddNoteCubit(),
         ),
+        BlocProvider(
+          create: (context) => FavoriteCubit(),
+        ),
       ],
       child: Stack(
         children: [
@@ -54,10 +58,6 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
                 sliver: SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      // const Padding(
-                      //   padding: EdgeInsets.all(20),
-                      //   child: CustomToolBar(),
-                      // ),
                       const SizedBox(
                         height: 25,
                       ),
@@ -65,8 +65,7 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
                       const ImagePlaceholder(),
                       const SizedBox(height: 17),
                       CustomTextFormField(
-                        controller: BlocProvider.of<ToolsCubit>(context)
-                            .titleController,
+                        controller: _titleController,
                         maxlines: 1,
                         hintText: 'Title',
                         style: Styles.textStyle18.copyWith(
@@ -102,9 +101,11 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
               ),
             ],
           ),
-          const Align(
+          Align(
             alignment: Alignment.bottomCenter,
-            child: NoteActionsBar(),
+            child: NoteActionsBar(
+              titleController: _titleController,
+            ),
           ),
         ],
       ),

@@ -59,7 +59,7 @@ class _ConfirmNoteLockViewBodyState extends State<ConfirmNoteLockViewBody> {
         if (value != GoRouterState.of(context).extra as String) {
           _errorController.add(ErrorAnimationType.shake);
         } else {
-          BlocProvider.of<LockNoteCubit>(context).addLock(code: value);
+          BlocProvider.of<LockNoteCubit>(context).addLock(newValue: value);
 
           // accept the code and save it in the note
           Navigator.of(context).pop();

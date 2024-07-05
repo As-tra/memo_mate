@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:memo_mate/core/utils/assets.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Favorite_cubit.dart/favorite_cubit.dart';
 
-class AddNoteAppBar extends StatefulWidget {
+class AddNoteAppBar extends StatelessWidget {
   const AddNoteAppBar({super.key});
-
-  @override
-  State<AddNoteAppBar> createState() => _AddNoteAppBarState();
-}
-
-class _AddNoteAppBarState extends State<AddNoteAppBar> {
-  bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       pinned: true,
       leading: IconButton(
         onPressed: () {
@@ -26,18 +21,22 @@ class _AddNoteAppBarState extends State<AddNoteAppBar> {
         ),
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 12.0),
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                isLiked = !isLiked;
-              });
-            },
-            child: SvgPicture.asset(
-              isLiked ? AssetsData.filledHeartIcon : AssetsData.emptyHeartIcon,
-            ),
-          ),
+        BlocBuilder<FavoriteCubit, bool>(
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 12.0),
+              child: GestureDetector(
+                onTap: () {
+                  BlocProvider.of<FavoriteCubit>(context).change();
+                },
+                child: SvgPicture.asset(
+                  state
+                      ? AssetsData.filledHeartIcon
+                      : AssetsData.emptyHeartIcon,
+                ),
+              ),
+            );
+          },
         ),
       ],
     );

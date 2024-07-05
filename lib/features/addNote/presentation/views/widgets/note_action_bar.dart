@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Lock_cubit/lock_note_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/image_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/get_current_date.dart';
 import 'package:memo_mate/features/addNote/presentation/views/logic/show_modal_bottom_sheet.dart';
@@ -10,7 +13,11 @@ import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_cubit.dart';
 
 class NoteActionsBar extends StatelessWidget {
-  const NoteActionsBar({super.key});
+  final TextEditingController titleController;
+  const NoteActionsBar({
+    super.key,
+    required this.titleController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +29,11 @@ class NoteActionsBar extends StatelessWidget {
           onpressed: () {
             BlocProvider.of<AddNoteCubit>(context).addNote(
               note: NoteModel(
-                imagePath: '',
-                title: 'title',
-                category: 'category',
-                tags: ['tags'],
-                code: 1111,
+                imagePath: BlocProvider.of<ImageCubit>(context).imagePath,
+                title: titleController.text,
+                category: BlocProvider.of<NoteTypeCubit>(context).state,
+                tags: BlocProvider.of<LabelCubit>(context).labelsList,
+                code: BlocProvider.of<LockNoteCubit>(context).code,
                 dateOfCreation: DateTime.now(),
                 dateOfLastEdit: DateTime.now(),
                 deadline: DateTime.now(),
