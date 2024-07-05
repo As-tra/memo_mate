@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Favorite_cubit.dart/favorite_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Lock_cubit/lock_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
@@ -14,9 +17,11 @@ import 'package:memo_mate/features/home/presentation/manager/notes_cubit/notes_c
 
 class NoteActionsBar extends StatelessWidget {
   final TextEditingController titleController;
+  final QuillController noteContentController;
   const NoteActionsBar({
     super.key,
     required this.titleController,
+    required this.noteContentController,
   });
 
   @override
@@ -37,11 +42,13 @@ class NoteActionsBar extends StatelessWidget {
                 dateOfCreation: DateTime.now(),
                 dateOfLastEdit: DateTime.now(),
                 deadline: DateTime.now(),
-                isFavorite: true,
-                isSecured: true,
-                content:
-                    'content content content content content content content content',
-                color: Colors.red.value,
+                isFavorite: BlocProvider.of<FavoriteCubit>(context).state,
+                isSecured: BlocProvider.of<LockNoteCubit>(context).locked,
+                content: noteContentController.document.toPlainText(),
+                color: BlocProvider.of<ColorCubit>(context)
+                    .noteColors[
+                        BlocProvider.of<ColorCubit>(context).currentColor]
+                    .value,
               ),
             );
             BlocProvider.of<NotesCubit>(context).getNotes();

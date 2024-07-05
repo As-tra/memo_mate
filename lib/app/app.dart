@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/theme/theme.dart';
 import 'package:memo_mate/core/utils/app_router.dart';
 import 'package:memo_mate/core/utils/service_locator.dart';
+import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Lock_cubit/lock_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
@@ -32,6 +33,9 @@ class MemoMate extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LockNoteCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ColorCubit(),
         ),
       ],
       child: ScreenUtilInit(

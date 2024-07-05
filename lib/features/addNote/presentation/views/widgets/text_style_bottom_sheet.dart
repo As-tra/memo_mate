@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:memo_mate/core/utils/app_router.dart';
 import 'package:memo_mate/core/utils/assets.dart';
 import 'package:memo_mate/core/utils/styles.dart';
-import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Label_Cubit/label_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Lock_cubit/lock_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';
@@ -45,10 +44,7 @@ class TextSyleBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 19),
-            BlocProvider(
-              create: (context) => ColorCubit(),
-              child: const CustomColorsPalette(),
-            ),
+            const CustomColorsPalette(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 18.0),
               child: Divider(

@@ -44,6 +44,7 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
         BlocProvider(
           create: (context) => FavoriteCubit(),
         ),
+        
       ],
       child: Stack(
         children: [
@@ -105,6 +106,7 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
             alignment: Alignment.bottomCenter,
             child: NoteActionsBar(
               titleController: _titleController,
+              noteContentController: _controller,
             ),
           ),
         ],
