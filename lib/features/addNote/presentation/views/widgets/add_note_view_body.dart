@@ -25,6 +25,12 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
   final QuillController _controller = QuillController.basic();
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
@@ -53,7 +59,7 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
                       //   child: CustomToolBar(),
                       // ),
                       const SizedBox(
-                        height: 50,
+                        height: 25,
                       ),
                       CustomQuillToolBar(controller: _controller),
                       const ImagePlaceholder(),

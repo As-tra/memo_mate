@@ -21,8 +21,7 @@ class CustomQuillEditor extends StatelessWidget {
       child: QuillEditor.basic(
         configurations: QuillEditorConfigurations(
           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-          placeholder:
-              "Notes....\\nShare your thoughts & ideas.\\nFeel free to jot down detailed plans\\nRemember your important goals. ",
+          placeholder: "Notes....",
           controller: _controller,
           customStyles: DefaultStyles(
             placeHolder: DefaultTextBlockStyle(
