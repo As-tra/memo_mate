@@ -9,8 +9,8 @@ import 'package:memo_mate/features/addNote/presentation/manager/image_cubit/imag
 import 'package:memo_mate/features/addNote/presentation/views/widgets/add_note_app_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_label_builder.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_quill_editor.dart';
+import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_quill_tool_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_tool_bar.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/image_placeholder.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/note_action_bar.dart';
 
@@ -48,10 +48,14 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
                 sliver: SliverToBoxAdapter(
                   child: Column(
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.all(20),
-                        child: CustomToolBar(),
+                      // const Padding(
+                      //   padding: EdgeInsets.all(20),
+                      //   child: CustomToolBar(),
+                      // ),
+                      const SizedBox(
+                        height: 50,
                       ),
+                      CustomQuillToolBar(controller: _controller),
                       const ImagePlaceholder(),
                       const SizedBox(height: 17),
                       CustomTextFormField(
