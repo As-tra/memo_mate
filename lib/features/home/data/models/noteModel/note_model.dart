@@ -12,7 +12,7 @@ class NoteModel extends HiveObject {
   @HiveField(2)
   final List<String> tags;
   @HiveField(3)
-  final bool isSecured;
+  bool isSecured;
   @HiveField(4)
   final int? code;
   @HiveField(5)

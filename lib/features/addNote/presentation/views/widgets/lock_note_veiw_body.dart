@@ -24,6 +24,7 @@ class LockNoteViewBody extends StatelessWidget {
               GoRouter.of(context)
                   .push(AppRouter.kConfirmLockView, extra: value);
             },
+            
           ),
         ),
       ],

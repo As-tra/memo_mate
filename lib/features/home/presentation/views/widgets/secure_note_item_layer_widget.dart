@@ -25,7 +25,9 @@ class SecureNoteItemLayerWidget extends StatelessWidget {
             showModalBottomSheet(
               context: context,
               builder: (context) {
-                return const CustomTapPinCodeBottomSheet();
+                return CustomTapPinCodeBottomSheet(
+                  note: note,
+                );
               },
             );
           },
