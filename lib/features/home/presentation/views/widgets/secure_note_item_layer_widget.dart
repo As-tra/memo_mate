@@ -7,7 +7,7 @@ import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';
 import 'package:memo_mate/features/home/presentation/views/widgets/custom_tap_pin_code_bottomsheet.dart';
 
-class SecureNoteItemLayerWidget extends StatelessWidget {
+class SecureNoteItemLayerWidget extends StatefulWidget {
   const SecureNoteItemLayerWidget({
     super.key,
     required this.note,
@@ -16,9 +16,19 @@ class SecureNoteItemLayerWidget extends StatelessWidget {
   final NoteModel note;
 
   @override
+  State<SecureNoteItemLayerWidget> createState() =>
+      _SecureNoteItemLayerWidgetState();
+}
+
+class _SecureNoteItemLayerWidgetState extends State<SecureNoteItemLayerWidget> {
+  void updateState() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: note.isSecured,
+      visible: widget.note.isSecured,
       child: Positioned.fill(
         child: GestureDetector(
           onTap: () {
@@ -26,7 +36,8 @@ class SecureNoteItemLayerWidget extends StatelessWidget {
               context: context,
               builder: (context) {
                 return CustomTapPinCodeBottomSheet(
-                  note: note,
+                  note: widget.note,
+                  updateState: updateState,
                 );
               },
             );
@@ -36,7 +47,7 @@ class SecureNoteItemLayerWidget extends StatelessWidget {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
               child: Container(
-                color: Color(note.color).withOpacity(0.8),
+                color: Color(widget.note.color).withOpacity(0.8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

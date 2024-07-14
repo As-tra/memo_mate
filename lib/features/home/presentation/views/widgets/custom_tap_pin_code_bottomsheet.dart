@@ -10,9 +10,11 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomTapPinCodeBottomSheet extends StatefulWidget {
   final NoteModel note;
+  final VoidCallback updateState;
   const CustomTapPinCodeBottomSheet({
     super.key,
     required this.note,
+    required this.updateState,
   });
 
   @override
@@ -60,6 +62,7 @@ class _CustomTapPinCodeBottomSheetState
                 } else {
                   Navigator.of(context).pop();
                   widget.note.isSecured = false;
+                  widget.updateState();
                 }
               },
             ),
