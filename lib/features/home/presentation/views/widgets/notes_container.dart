@@ -24,12 +24,11 @@ class _NotesContainerState extends State<NotesContainer> {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         if (state is NoteSuccess) {
-          return MasonryGridView.count(
+          return SliverMasonryGrid.count(
             crossAxisCount: 2,
-            mainAxisSpacing: 13,
-            itemCount: state.notes.length,
-            crossAxisSpacing: 13,
-            physics: const NeverScrollableScrollPhysics(),
+            mainAxisSpacing: 12,
+            childCount: state.notes.length,
+            crossAxisSpacing: 12,
             itemBuilder: (context, index) {
               debugPrint('${state.notes.length}');
               return NoteCard(
@@ -38,9 +37,9 @@ class _NotesContainerState extends State<NotesContainer> {
             },
           );
         } else if (state is NoteFailure) {
-          return const Placeholder();
+          return const SliverToBoxAdapter(child: Placeholder());
         } else {
-          return const EmptyNotesContainer();
+          return const SliverToBoxAdapter(child: EmptyNotesContainer());
         }
       },
     );

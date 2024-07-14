@@ -12,8 +12,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+    return CustomScrollView(
+      slivers: [
         BlocProvider(
           create: (context) => DateCubit(),
           child: const SliverToBoxAdapter(
@@ -31,8 +31,8 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
         ),
+        const NotesContainer(),
       ],
-      body: const NotesContainer(),
     );
   }
 }
