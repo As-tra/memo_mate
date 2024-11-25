@@ -10,7 +10,7 @@ class AddNoteAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       pinned: true,
       leading: IconButton(
         onPressed: () {

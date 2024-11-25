@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 
 class CustomQuillEditor extends StatelessWidget {

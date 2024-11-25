@@ -26,7 +26,7 @@ class CustomExtraAction extends StatelessWidget {
       ),
       title: Text(
         actionText,
-        style: Styles.textStyle18.copyWith(
+        style: Styles.textStyle16.copyWith(
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),

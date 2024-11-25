@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 
 abstract class Styles {
   static const textStyle32 = TextStyle(

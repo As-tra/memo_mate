@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/features/addNote/data/note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/note_type_list_view_item.dart';
 

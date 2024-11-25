@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class CustomPinCodeField extends StatelessWidget {

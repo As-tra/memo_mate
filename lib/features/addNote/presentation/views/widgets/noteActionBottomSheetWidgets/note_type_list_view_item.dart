@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/data/note_type.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Note_type_cubit/note_type_cubit.dart';

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/core/errors/failures.dart';
 import 'package:memo_mate/core/utils/functions/comare_dates.dart';
 import 'package:memo_mate/features/home/data/models/noteModel/note_model.dart';

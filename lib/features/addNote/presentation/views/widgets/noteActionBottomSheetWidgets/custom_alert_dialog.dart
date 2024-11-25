@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/custom_button.dart';
 import 'package:memo_mate/features/addNote/presentation/views/widgets/noteActionBottomSheetWidgets/custom_check_box.dart';

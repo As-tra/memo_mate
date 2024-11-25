@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Color_cubit/color_cubit.dart';
@@ -70,11 +69,14 @@ class NoteActionsBar extends StatelessWidget {
           },
         ),
         const Spacer(),
-        Text(
-          getCurrentDate(),
-          style: Styles.textStyle12.copyWith(
-            color: Colors.white.withOpacity(0.6),
-            fontWeight: FontWeight.w300,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            getCurrentDate(),
+            style: Styles.textStyle12.copyWith(
+              color: Colors.white.withOpacity(0.6),
+              fontWeight: FontWeight.w300,
+            ),
           ),
         ),
         _buildActionButton(
@@ -96,7 +98,7 @@ class NoteActionsBar extends StatelessWidget {
       constraints: const BoxConstraints(),
       icon: Icon(
         icon,
-        size: 26.sp,
+        size: 26,
       ),
     );
   }

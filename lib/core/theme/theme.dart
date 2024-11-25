@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 
 ThemeData lightMode = ThemeData();
 
@@ -8,8 +8,7 @@ ThemeData darkMode = ThemeData(
   fontFamily: kComfortaa,
   colorScheme: const ColorScheme.dark(
     // old background(0xFF1E1E1E)
-    background: Color(0xFF000000),
-
+    surface: Color(0xFF000000),
     primary: Color(0xFFFFFFFF),
     onPrimary: Color(0xFF7C7C7C),
     secondary: Color(0xFFE2E2E2),

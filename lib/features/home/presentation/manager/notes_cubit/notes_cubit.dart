@@ -13,7 +13,9 @@ class NotesCubit extends Cubit<NotesState> {
 
   void getNotes() {
     var results = homeRepo.getNotesByCategoryAndDate(
-        date: currentDate, category: currentCategory);
+      date: currentDate,
+      category: currentCategory,
+    );
     results.fold(
       (failure) {
         emit(NoteFailure(
@@ -28,12 +30,5 @@ class NotesCubit extends Cubit<NotesState> {
         }
       },
     );
-  }
-
-  @override
-  void onChange(Change<NotesState> change) {
-    // TODO: implement onChange
-    super.onChange(change);
-    print(change.toString());
   }
 }

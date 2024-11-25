@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:memo_mate/core/constants.dart';
+import 'package:memo_mate/core/utils/constants.dart';
 import 'package:memo_mate/core/utils/styles.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Add_note/add_note_cubit.dart';
 import 'package:memo_mate/features/addNote/presentation/manager/Favorite_cubit.dart/favorite_cubit.dart';
@@ -44,72 +44,73 @@ class _AddNoteViewBodyState extends State<AddNoteViewBody> {
         BlocProvider(
           create: (context) => FavoriteCubit(),
         ),
-        
       ],
-      child: Stack(
-        children: [
-          CustomScrollView(
-            slivers: [
-              const AddNoteAppBar(),
-              SliverPadding(
-                padding: const EdgeInsets.only(
-                  left: 12,
-                  right: 12,
-                ),
-                sliver: SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      CustomQuillToolBar(controller: _controller),
-                      const ImagePlaceholder(),
-                      const SizedBox(height: 17),
-                      CustomTextFormField(
-                        controller: _titleController,
-                        maxlines: 1,
-                        hintText: 'Title',
-                        style: Styles.textStyle18.copyWith(
-                          fontFamily: kComfortaa,
-                          fontWeight: FontWeight.normal,
-                          fontStyle: FontStyle.italic,
+      child: SafeArea(
+        child: Stack(
+          children: [
+            CustomScrollView(
+              slivers: [
+                const AddNoteAppBar(),
+                SliverPadding(
+                  padding: const EdgeInsets.only(
+                    left: 12,
+                    right: 12,
+                  ),
+                  sliver: SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 25,
                         ),
-                      ),
-                      const SizedBox(height: 6.3),
-                      CustomQuillEditor(controller: _controller),
-                      const SizedBox(height: 13.5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Last Changed : Mar 1, 2024 at 2.00AM',
-                            style: Styles.textStyle12.copyWith(
-                              color: Colors.white.withOpacity(0.6),
-                              fontWeight: FontWeight.w300,
-                            ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 17.5),
-                      const CustomLabelsBuilder(
-                        color: Colors.black,
-                        showCloseIcon: false,
-                      ),
-                      const SizedBox(height: 150),
-                    ],
+                        CustomQuillToolBar(controller: _controller),
+                        const ImagePlaceholder(),
+                        const SizedBox(height: 17),
+                        CustomTextFormField(
+                          controller: _titleController,
+                          maxlines: 1,
+                          hintText: 'Title',
+                          style: Styles.textStyle18.copyWith(
+                            fontFamily: kComfortaa,
+                            fontWeight: FontWeight.normal,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        const SizedBox(height: 6.3),
+                        CustomQuillEditor(controller: _controller),
+                        const SizedBox(height: 13.5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Last Changed : Mar 1, 2024 at 2.00AM',
+                              style: Styles.textStyle12.copyWith(
+                                color: Colors.white.withOpacity(0.6),
+                                fontWeight: FontWeight.w300,
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 17.5),
+                        CustomLabelsBuilder(
+                          color: Theme.of(context).colorScheme.surface,
+                          showCloseIcon: false,
+                        ),
+                        const SizedBox(height: 150),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: NoteActionsBar(
-              titleController: _titleController,
-              noteContentController: _controller,
+              ],
             ),
-          ),
-        ],
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: NoteActionsBar(
+                titleController: _titleController,
+                noteContentController: _controller,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
