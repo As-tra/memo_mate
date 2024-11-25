@@ -30,7 +30,6 @@ class _NotesContainerState extends State<NotesContainer> {
             childCount: state.notes.length,
             crossAxisSpacing: 12,
             itemBuilder: (context, index) {
-              debugPrint('${state.notes.length}');
               return NoteCard(
                 note: state.notes[index],
               );

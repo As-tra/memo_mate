@@ -58,4 +58,25 @@ class HomeRepoImpl implements HomeRepo {
       );
     }
   }
+  
+  @override
+  Either<Failure, List<NoteModel>> filterNotesByTitle({required String text}) {
+    try {
+      var noteBox = Hive.box<NoteModel>(kNoteBox);
+      List<NoteModel> notes = noteBox.values.toList();
+      List<NoteModel> res = [];
+      for (var note in notes) {
+        if (note.title.toLowerCase().contains(text.toLowerCase())) {
+          res.add(note);
+        }
+      }
+      return right(res);
+    } catch (e) {
+      return left(
+        CacheFailure(
+          errorMessage: e.toString(),
+        ),
+      );
+    }
+  }
 }

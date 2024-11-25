@@ -1,5 +1,4 @@
 class AssetsData {
-  static const searchLogo = 'assets/icons/searchnormal1.png';
   static const menuIcon = 'assets/icons/menu.svg';
   static const penIcon = 'assets/icons/pen.svg';
   static const emptyNotesImage = 'assets/icons/empty_note.svg';
@@ -11,4 +10,5 @@ class AssetsData {
   static const trashIocn = 'assets/icons/trash.svg';
   static const lockIcon = 'assets/icons/unlocked.svg';
   static const closeIcon = 'assets/icons/x.svg';
+  static const searchIcon = 'assets/icons/search_icon.svg';
 }

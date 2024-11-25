@@ -11,6 +11,24 @@ class NotesCubit extends Cubit<NotesState> {
   DateTime currentDate = DateTime.now();
   String currentCategory = 'All';
 
+  void filterNotes(String text) {
+    var results = homeRepo.filterNotesByTitle(text: text);
+    results.fold(
+      (failure) {
+        emit(NoteFailure(
+          errorMessage: failure.errorMessage,
+        ));
+      },
+      (success) {
+        if (success.isNotEmpty) {
+          emit(NoteSuccess(notes: success));
+        } else {
+          emit(NoteEmpty());
+        }
+      },
+    );
+  }
+
   void getNotes() {
     var results = homeRepo.getNotesByCategoryAndDate(
       date: currentDate,
