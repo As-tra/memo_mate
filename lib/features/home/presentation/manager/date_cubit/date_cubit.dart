@@ -1,16 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:memo_mate/core/utils/functions/get_dates.dart';
 
-part 'date_state.dart';
 
-class DateCubit extends Cubit<DateState> {
-  DateCubit() : super(DateInitial());
+class DateCubit extends Cubit<DateTime> {
+  DateCubit() : super(DateTime.now());
 
-  int current = 0;
-  List<DateTime> dates = getNext10Days() ;
+  DateTime currentDate = DateTime.now();
 
-  void selectDate({required int index}) {
-    current = index;
-    emit(DateSelected());
+  void selectDate({required DateTime date}) {
+    currentDate = date;
   }
 }
